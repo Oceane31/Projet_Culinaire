@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.9.1" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="Recette">
+    <void property="cout">
+     <int>5</int>
+    </void>
+    <void property="difficulte">
+     <int>2</int>
+    </void>
+    <void property="nbpersonne">
+     <int>4</int>
+    </void>
+    <void property="nom">
+     <string>risotto</string>
+    </void>
+   </object>
+  </void>
+<void method="add">
+   <object class="Recette">
+    <void property="cout">
+     <int>0</int>
+    </void>
+    <void property="difficulte">
+     <int>10</int>
+    </void>
+    <void property="nbpersonne">
+     <int>2</int>
+    </void>
+    <void property="nom">
+     <string>poulet au curry</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
