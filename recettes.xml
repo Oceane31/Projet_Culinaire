@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="11.0.9.1" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
+  <!-- Recette du risotto ci-dessous -->
   <void method="add">
    <object class="Recette">
     <void property="cout">
@@ -17,7 +18,8 @@
     </void>
    </object>
   </void>
-<void method="add">
+  <!-- Recette du poulet ci-dessous -->
+  <void method="add">
    <object class="Recette">
     <void property="cout">
      <int>0</int>
@@ -33,5 +35,6 @@
     </void>
    </object>
   </void>
+  <!-- nouvelle recette à insérer ci-dessous -->
  </object>
 </java>

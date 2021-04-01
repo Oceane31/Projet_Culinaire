@@ -16,7 +16,7 @@ public class Recette implements Serializable{
 	}
 	
 	public String toString() {
-		return this.nom + " ("+this.difficulte + ")";
+		return this.nom + " ("+this.difficulte+", "+this.cout+", "+this.nbpersonne + ")";
 	}
 	
 	public String getNom() {

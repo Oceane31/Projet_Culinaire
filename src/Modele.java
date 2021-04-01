@@ -51,7 +51,7 @@ public class Modele {
 //		m.listeRecettes.add(new Recette("risotto",2,5,4,new ArrayList()));
 //		m.enregistrerXML();
 		m.chargerXML();
-		System.out.println(m.listeRecettes.get(0).nom);
+		System.out.println(m);
 	}
 
 	
