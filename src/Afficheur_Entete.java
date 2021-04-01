@@ -1,4 +1,4 @@
 
-public class Afficheur_Entête {
+public class Afficheur_Entete {
 
 }
