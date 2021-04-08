@@ -14,7 +14,7 @@ public class GUI extends Frame implements WindowListener{
 		this.setLayout(new BorderLayout());
 		this.addWindowListener(this);
 		this.setTitle("application");
-		this.pack();
+		this.pack(); 
 		this.setVisible(true);
 	}
 	@Override
