@@ -14,10 +14,15 @@ public class GUI extends Frame implements WindowListener{
 		this.setLayout(new BorderLayout());
 		this.addWindowListener(this);
 		this.setTitle("application");
+		
 		Afficheur_Entete entete=new Afficheur_Entete();
 		this.add(entete,BorderLayout.NORTH);
+		
 		Afficheur_Image im=new Afficheur_Image();
 		this.add(im,BorderLayout.EAST);
+		
+		Afficheur_recette panneauGauche = new Afficheur_recette();
+		this.add(panneauGauche, BorderLayout.WEST);
 		
 		this.pack();
 		this.setVisible(true);
