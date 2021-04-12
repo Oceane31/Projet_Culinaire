@@ -21,13 +21,13 @@ public class Afficheur_recette extends Panel implements Observer, LayoutManager{
 		JLabel type = new JLabel("Type");
 		this.add(type);
 		type.setBounds(300, 0, 640, 72);
-		JLabel difficulté = new JLabel("Difficulté");
-		this.add(difficulté);
+		JLabel difficulte = new JLabel("Difficulte");
+		this.add(difficulte);
 		
-		difficulté.setBounds(290, 154, 640, 72);
-		JButton entrée= new JButton("Entrées");
-		this.add(entrée);
-		entrée.setBounds(30, 72, 150, 82);
+		difficulte.setBounds(290, 154, 640, 72);
+		JButton entree= new JButton("Entrees");
+		this.add(entree);
+		entree.setBounds(30, 72, 150, 82);
 		JButton plat= new JButton("Plats");
 		this.add(plat);
 		plat.setBounds(210, 72, 150, 82);
