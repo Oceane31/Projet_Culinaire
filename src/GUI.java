@@ -4,7 +4,6 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class GUI extends Frame implements WindowListener{
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new GUI();
@@ -21,7 +20,7 @@ public class GUI extends Frame implements WindowListener{
 		Afficheur_Image im=new Afficheur_Image();
 		this.add(im,BorderLayout.EAST);
 		
-		Afficheur_recette panneauGauche = new Afficheur_recette();
+		Afficheur_recette panneauGauche = new Afficheur_recette(this);
 		this.add(panneauGauche, BorderLayout.WEST);
 		
 		this.pack();
