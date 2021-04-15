@@ -66,7 +66,7 @@ public class Afficheur_recette extends Panel implements Observer{
 		JButton paella= new JButton("Paella");
 		p.add(paella);
 		
-		JButton riz_senegalais = new JButton("Riz s�n�galais");
+		JButton riz_senegalais = new JButton("Riz senegalais");
 		p.add(riz_senegalais);
 		onglet2.add(p, BorderLayout.NORTH);
 
