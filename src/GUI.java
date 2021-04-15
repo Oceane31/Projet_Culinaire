@@ -22,13 +22,14 @@ public class GUI extends Frame implements WindowListener{
 		this.addWindowListener(this);
 		this.setTitle("application");
 		
-		Afficheur_Entete entete=new Afficheur_Entete();
+		Afficheur_Entete entete=new Afficheur_Entete(c);
 		this.add(entete,BorderLayout.NORTH);
 		
 		Afficheur_Image im=new Afficheur_Image();
 		this.add(im,BorderLayout.EAST);
 		
 		Afficheur_recette panneauGauche = new Afficheur_recette(c);
+		modele.addObserver(panneauGauche);
 		this.add(panneauGauche, BorderLayout.WEST);
 		
 		this.pack();

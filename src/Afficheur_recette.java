@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -20,15 +21,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 public class Afficheur_recette extends Panel implements Observer{
 	
-	Modele m= new Modele();
-	Recette ma_recette= new Recette();
-	JButton risotto_nature= new JButton("Risotto nature");
+	Panel panneauRecette;
 	
-	Panel panel_recette=new Panel(); //Panel où va s'afficher les recettes
 	
 	
 	public Afficheur_recette(ActionListener ecouteur) {
@@ -36,6 +35,7 @@ public class Afficheur_recette extends Panel implements Observer{
 		String newLine = System.getProperty("line.separator");
 		JTabbedPane onglets = new JTabbedPane(SwingConstants.TOP);
 		
+		this.panneauRecette = new Panel( new FlowLayout());
 		
 
 	    JPanel onglet1 = new JPanel();
@@ -46,7 +46,7 @@ public class Afficheur_recette extends Panel implements Observer{
 	    JPanel onglet2 = new JPanel();
 	    onglet2.setLayout(new BorderLayout());
 	    onglets.addTab("Plat", onglet2);
-	    onglet2.add(panel_recette, BorderLayout.CENTER);
+	    onglet2.add(panneauRecette, BorderLayout.CENTER);
 
 	    JPanel onglet3 = new JPanel();
 	    onglet3.setLayout(new BorderLayout());
@@ -54,6 +54,8 @@ public class Afficheur_recette extends Panel implements Observer{
 	    onglets.addTab("Dessert", onglet3);
 	    
 	    Panel p=new Panel();
+	    JButton risotto_nature= new JButton("Risotto nature");
+	    risotto_nature.setName("risotto");
 	    p.add(risotto_nature);
 	    risotto_nature.addActionListener(ecouteur);
 	    
@@ -97,10 +99,7 @@ public class Afficheur_recette extends Panel implements Observer{
 		p2.add(avocat_salade);
 		onglet1.add(p2, BorderLayout.NORTH);
 		
-		JLabel okay=new JLabel("okay");
-		panel_recette.add(okay);
 	    this.add(onglets);
-	    
 	
 		
 	}
@@ -108,7 +107,11 @@ public class Afficheur_recette extends Panel implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		
+		System.out.println(arg);
+		Recette r= (Recette) arg;
+		JTextArea recette= new JTextArea();
+		recette.setText(r.toString());
+		panneauRecette.add(recette);
 	}
 
 
@@ -116,9 +119,9 @@ public class Afficheur_recette extends Panel implements Observer{
 	
 	
 	private void afficherRecette() { // elle va afficher la recette au bon endroit donc dans le panel_recette
-		System.out.println("recette " + ma_recette.getNom());
+		/*System.out.println("recette " + ma_recette.getNom());
 		JLabel recette= new JLabel("recette");
-		panel_recette.add(recette);
+		panel_recette.add(recette);*/
 	}
 	
 }
