@@ -2,6 +2,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.swing.JButton;
+
 public class Controleur implements ActionListener {
 	Modele modele;
 	
@@ -12,6 +14,8 @@ public class Controleur implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object source= e.getSource();
+		JButton bsource= (JButton) source;
+		System.out.println(bsource.getName());
 		/*if (source == risotto_nature){ // on peut mettre le try avant le if et tout mettre dedans
 			try {
 				final Recette recette_trouvee= this.getRecette("risotto"); // on récupère la recette obtenue grâce au getRecette et au nom de la recette ici "risotto"
