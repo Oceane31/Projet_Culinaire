@@ -7,20 +7,21 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Modele {
 
-	public ArrayList<Recette> listeRecettes;
+	public HashMap<String,Recette> listeRecettes;
 	
 	public Modele() {
-		this.listeRecettes=new ArrayList<Recette>();
+		this.listeRecettes=new HashMap<String,Recette>();
 	}
 	
 	public void chargerXML() throws IOException, ClassNotFoundException {
 		FileInputStream fis = new FileInputStream(new File("recettes.xml"));
 		BufferedInputStream bis = new BufferedInputStream(fis);
 		XMLDecoder decoder = new XMLDecoder(bis);
-		this.listeRecettes = (ArrayList<Recette>)decoder.readObject();
+		this.listeRecettes = (HashMap<String,Recette>)decoder.readObject();
 		decoder.close();
 		bis.close();
 		fis.close();
@@ -63,9 +64,9 @@ public class Modele {
 		Recette risotto=new Recette("risotto",2,5,4,listeEtapes);
 		System.out.println(risotto);
 		
-		m.listeRecettes.add(risotto);
+		m.listeRecettes.put("risotto",risotto);
 		m.enregistrerXML();
-//		m.chargerXML();
+		//m.chargerXML();
 		System.out.println(m);
 	}
 

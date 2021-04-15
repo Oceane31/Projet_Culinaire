@@ -17,6 +17,10 @@ public class Etape {
 		//this.duree=d;
 	}
 	
+	public String toString() {
+		return this.intitule + "duree : "+this.duree+ "listeIngredients: "+this.ingredient+"ustensiles:"+this.ustensile;
+	}
+	
 	public void ajouterIngredient(Ingredient i) {
 		this.ingredient.add(i);
 	}
