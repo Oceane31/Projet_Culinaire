@@ -29,6 +29,7 @@ public class GUI extends Frame implements WindowListener{
 		this.add(im,BorderLayout.EAST);
 		
 		Afficheur_recette panneauGauche = new Afficheur_recette(c);
+		modele.addObserver(panneauGauche);
 		this.add(panneauGauche, BorderLayout.WEST);
 		
 		this.pack();

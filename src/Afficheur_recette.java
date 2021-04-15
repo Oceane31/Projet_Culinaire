@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -20,11 +21,12 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 public class Afficheur_recette extends Panel implements Observer{
 	
-
+	Panel panneauRecette;
 	
 	
 	
@@ -33,6 +35,7 @@ public class Afficheur_recette extends Panel implements Observer{
 		String newLine = System.getProperty("line.separator");
 		JTabbedPane onglets = new JTabbedPane(SwingConstants.TOP);
 		
+		this.panneauRecette = new Panel( new FlowLayout());
 		
 
 	    JPanel onglet1 = new JPanel();
@@ -43,6 +46,7 @@ public class Afficheur_recette extends Panel implements Observer{
 	    JPanel onglet2 = new JPanel();
 	    onglet2.setLayout(new BorderLayout());
 	    onglets.addTab("Plat", onglet2);
+	    onglet2.add(panneauRecette, BorderLayout.CENTER);
 
 	    JPanel onglet3 = new JPanel();
 	    onglet3.setLayout(new BorderLayout());
@@ -103,7 +107,11 @@ public class Afficheur_recette extends Panel implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		
+		System.out.println(arg);
+		Recette r= (Recette) arg;
+		JTextArea recette= new JTextArea();
+		recette.setText(r.toString());
+		panneauRecette.add(recette);
 	}
 
 

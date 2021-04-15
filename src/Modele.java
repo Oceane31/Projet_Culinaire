@@ -8,10 +8,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Observable;
 
-public class Modele {
+public class Modele extends Observable {
 
 	public HashMap<String,Recette> listeRecettes;
+	public Recette recetteSelectionee;
 	
 	public Modele() {
 		this.listeRecettes=new HashMap<String,Recette>();
@@ -29,6 +31,12 @@ public class Modele {
 	
 	public String toString() {
 		return this.listeRecettes.toString();
+	}
+	
+	public void selectionRecette(String nom) {
+		this.recetteSelectionee=listeRecettes.get(nom);
+		this.setChanged();
+		this.notifyObservers(recetteSelectionee);
 	}
 	
 	public void enregistrerXML() {
