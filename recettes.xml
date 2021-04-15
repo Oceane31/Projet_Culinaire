@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="11.0.9.1" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
-  <!-- Recette du risotto ci-dessous -->
   <void method="add">
-   <object class="Recette">
+   <object class="Recette" id="Recette0">
     <void property="cout">
      <int>5</int>
     </void>
     <void property="difficulte">
      <int>2</int>
+    </void>
+    <void property="etapes">
+     <void method="add">
+      <object class="Etape" id="Etape0">
+       <void id="ArrayList0" property="ingredient">
+        <void method="add">
+         <object class="Ingredient">
+          <void property="ingredient">
+           <string>bouillon de l�gumes</string>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="Ingredient">
+          <void property="ingredient">
+           <string>oignon</string>
+          </void>
+         </object>
+        </void>
+       </void>
+       <void property="intitule">
+        <string>Verser le bouillon de l�gumes</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="Etape">
+       <void property="ingredient">
+        <object idref="ArrayList0"/>
+       </void>
+       <void property="intitule">
+        <string>Faire revenir les oignons</string>
+       </void>
+      </object>
+     </void>
     </void>
     <void property="nbpersonne">
      <int>4</int>
@@ -18,23 +52,5 @@
     </void>
    </object>
   </void>
-  <!-- Recette du poulet ci-dessous -->
-  <void method="add">
-   <object class="Recette">
-    <void property="cout">
-     <int>0</int>
-    </void>
-    <void property="difficulte">
-     <int>10</int>
-    </void>
-    <void property="nbpersonne">
-     <int>2</int>
-    </void>
-    <void property="nom">
-     <string>poulet au curry</string>
-    </void>
-   </object>
-  </void>
-  <!-- nouvelle recette à insérer ci-dessous -->
  </object>
 </java>

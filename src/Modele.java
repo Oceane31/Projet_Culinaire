@@ -48,9 +48,24 @@ public class Modele {
 	
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Modele m =new Modele();
-//		m.listeRecettes.add(new Recette("risotto",2,5,4,new ArrayList()));
-//		m.enregistrerXML();
-		m.chargerXML();
+		
+		Ingredient bouillondelegumes=new Ingredient("bouillon de l�gumes");
+		ArrayList<Ingredient> ingredients=new ArrayList<Ingredient>();
+		ingredients.add(bouillondelegumes);
+		
+		Ingredient oignon = new Ingredient("oignon");
+		ingredients.add(oignon);
+		
+		ArrayList<Etape> listeEtapes = new ArrayList<Etape>();
+		listeEtapes.add(new Etape ("Verser le bouillon de l�gumes",ingredients));
+		listeEtapes.add(new Etape ("Faire revenir les oignons", ingredients));
+		
+		Recette risotto=new Recette("risotto",2,5,4,listeEtapes);
+		System.out.println(risotto);
+		
+		m.listeRecettes.add(risotto);
+		m.enregistrerXML();
+//		m.chargerXML();
 		System.out.println(m);
 	}
 
