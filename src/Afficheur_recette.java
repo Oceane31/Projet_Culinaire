@@ -64,7 +64,7 @@ public class Afficheur_recette extends Panel implements Observer, ActionListener
 		JButton paella= new JButton("Paella");
 		p.add(paella);
 		
-		JButton riz_senegalais = new JButton("Riz sénégalais");
+		JButton riz_senegalais = new JButton("Riz senegalais");
 		p.add(riz_senegalais);
 		onglet2.add(p, BorderLayout.NORTH);
 
@@ -85,7 +85,7 @@ public class Afficheur_recette extends Panel implements Observer, ActionListener
 		
 		Panel p2=new Panel();
 		JButton salade_fruits_secs= new JButton("Salade de riz"+newLine+ " aux fruits secs");
-		//le newLine est cense etre un retour a  la ligne mais ca marche pas 
+		//le newLine est cense etre un retour aï¿½ la ligne mais ca marche pas 
 		p2.add(salade_fruits_secs);
 		
 		JButton salade_thon = new JButton("Salade de riz au thon");
