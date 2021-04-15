@@ -91,17 +91,6 @@ public class Recette implements Serializable{
 		this.etapes.add(e);
 	}
 	
-	public static void main(String[] args) {
-		ArrayList<Etape> etape = new ArrayList<Etape>();
-		Ingredients bouillondelegumes=new Ingredients("bouillon de l�gumes");
-		ArrayList<Ingredients> ingredients=new ArrayList<Ingredients>();
-		ingredients.add(new Ingredients("bouillon de l�gumes"));
-		etape.add(new Etape ("Verser le bouillon de l�gumes",ingredients));
-		Recette risotto=new Recette("risotto",2,5,4,etape);
-		System.out.println(risotto);
-	}
 	
-	
-
 }
 

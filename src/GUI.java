@@ -4,8 +4,9 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class GUI extends Frame implements WindowListener{
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		new GUI();
 	}
 
