@@ -17,6 +17,10 @@ public class Ingredient {
 		this.ingredient = ingredient;
 	}
 	
+	public String toString() {
+		return this.ingredient;
+	}
+	
 	/*
 	public static void main(String[] args) {
 		Ingredient rizrisotto=new Ingredient("riz sp�cial risotto");
