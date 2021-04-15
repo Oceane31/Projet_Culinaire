@@ -22,7 +22,7 @@ public class GUI extends Frame implements WindowListener{
 		this.addWindowListener(this);
 		this.setTitle("application");
 		
-		Afficheur_Entete entete=new Afficheur_Entete();
+		Afficheur_Entete entete=new Afficheur_Entete(c);
 		this.add(entete,BorderLayout.NORTH);
 		
 		Afficheur_Image im=new Afficheur_Image();
