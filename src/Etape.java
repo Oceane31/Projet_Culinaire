@@ -18,7 +18,7 @@ public class Etape {
 	}
 	
 	public String toString() {
-		return this.intitule + "duree : "+this.duree+ "listeIngredients: "+this.ingredient+"ustensiles:"+this.ustensile;
+		return "etape: "+this.intitule +"\n" + "duree : "+this.duree+"\n" + "listeIngredients: "+this.ingredient+"\n" +"ustensiles:"+this.ustensile+"\n" ;
 	}
 	
 	public void ajouterIngredient(Ingredient i) {
