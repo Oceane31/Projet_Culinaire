@@ -1,10 +1,13 @@
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
 
-public class Controleur implements ActionListener {
+public class Controleur implements ActionListener, FocusListener {
 	Modele modele;
 	
 	public Controleur(Modele m) {
@@ -37,6 +40,20 @@ public class Controleur implements ActionListener {
 		
 	}*/
 
+	}
+	@Override
+	public void focusGained(FocusEvent arg0) {
+		TextField t = (TextField)arg0.getSource();
+		t.setText("");
+		
+		
+	}
+	@Override
+	public void focusLost(FocusEvent arg0) {
+		// TODO Auto-generated method stub
+		TextField t = (TextField)arg0.getSource();
+		t.setText("Tapez votre recherche");
+		
 	}
 
 }
