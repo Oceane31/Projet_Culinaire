@@ -1,3 +1,11 @@
+package culinaire;
+
+import culinaire.controleurs.BarreDeRecherche;
+import culinaire.controleurs.SelectionRecettes;
+import culinaire.vues.Afficheur_Entete;
+import culinaire.vues.Afficheur_Image;
+import culinaire.vues.Afficheur_recette;
+
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.event.WindowEvent;
@@ -16,23 +24,26 @@ public class GUI extends Frame implements WindowListener{
 		
 		Modele modele= new Modele();
 		modele.chargerXML();
-		Controleur c=new Controleur(modele);
+
+		SelectionRecettes c=new SelectionRecettes(modele);
+		BarreDeRecherche b = new BarreDeRecherche(modele);
 		
 		this.setLayout(new BorderLayout());
 		this.addWindowListener(this);
 		this.setTitle("application");
 		
-		Afficheur_Entete entete=new Afficheur_Entete(c);
+		Afficheur_Entete entete=new Afficheur_Entete(b);
 		this.add(entete,BorderLayout.NORTH);
 		
 		Afficheur_Image im=new Afficheur_Image();
 		this.add(im,BorderLayout.EAST);
 		
-		Afficheur_recette panneauGauche = new Afficheur_recette(c);
+		Afficheur_recette panneauGauche = new Afficheur_recette(c, modele);
 		modele.addObserver(panneauGauche);
 		this.add(panneauGauche, BorderLayout.WEST);
 		
 		this.pack();
+		//modele.init()
 		this.setVisible(true);
 		
 	}

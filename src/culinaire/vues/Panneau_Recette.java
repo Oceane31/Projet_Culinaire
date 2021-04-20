@@ -1,33 +1,36 @@
+package culinaire.vues;
+
+import culinaire.Modele;
+import culinaire.structures.Etape;
+import culinaire.structures.Ingredient;
+import culinaire.structures.Recette;
+import culinaire.structures.Ustensile;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Panel;
 import java.awt.font.TextAttribute;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import javax.imageio.ImageIO;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Panneau_Recette extends JPanel{
 
 	Recette r= new Recette();
-	Modele m=new Modele();
+	Modele m;
 	
 	
-	public Panneau_Recette() {
-		
+	public Panneau_Recette(Modele m) {
+		this.m = m;
 		
 	}
 	public void afficheRecette(Recette r, Graphics g) {
 		try {
 			m.chargerXML();
 			Font font=new Font("Arial",Font.BOLD, 40);
-			String titreRecette= new String(r.nom);
+			String titreRecette= new String(r.getNom());
 			g.setFont(font);
 			g.drawString(titreRecette, 270, 100);
 			
@@ -50,20 +53,20 @@ public class Panneau_Recette extends JPanel{
             Font fontigd= new Font("Arial", Font.PLAIN, 14);
             g.setFont(fontigd);
             ArrayList<Ingredient> liste= new ArrayList<Ingredient>();
-			for(int i=0; i<r.etapes.size(); i++) {
-				Etape e=r.etapes.get(i);
-				liste=e.ingredient;
+			for(int i=0; i<r.getEtapes().size(); i++) {
+				Etape e=r.getEtapes().get(i);
+				liste=e.getIngredient();
 			}
 			for(int i=0; i<liste.size(); i++) {
 				Ingredient igt=liste.get(i);
-				String ingredient= new String(igt.ingredient);
+				String ingredient= new String(igt.getIngredient());
 				g.drawString("- "+ingredient, 100, 190+20*i);
 			}
-			for(int i=0; i<r.etapes.size(); i++) {
-				Etape e=r.etapes.get(i);
-				Ustensile u=e.ustensile;
+			for(int i=0; i<r.getEtapes().size(); i++) {
+				Etape e=r.getEtapes().get(i);
+				Ustensile u=e.getUstensile();
 				if(u!=null) {
-					String ustensile= new String(u.ustensile);
+					String ustensile= new String(u.getUstensile());
 					g.drawString("- " +ustensile,270 , 190+20*i);
 				}
 				else {
@@ -71,9 +74,9 @@ public class Panneau_Recette extends JPanel{
 				}
 			}
 			
-			for(int i=0; i<r.etapes.size(); i++) {
-				Etape e=r.etapes.get(i);
-				String etape= new String(i+1 +") " +e.intitule);
+			for(int i=0; i<r.getEtapes().size(); i++) {
+				Etape e=r.getEtapes().get(i);
+				String etape= new String(i+1 +") " +e.getIntitule());
 				g.drawString(etape,10,300+20*i);
 			}
 			
@@ -83,20 +86,20 @@ public class Panneau_Recette extends JPanel{
 			
 			String difficulte= new String("difficulté: ");
 			g.drawString(difficulte, 10, 140);
-			for(int i=0;i<r.difficulte;i++) {
+			for(int i=0;i<r.getDifficulte();i++) {
 				String etoile=new String("*");
 				g.drawString(etoile, 80+10*i, 140);
 			}
 			String cout= new String("coût: ");
 			g.drawString(cout, 250, 140);
-			for(int i=0;i<r.cout;i++) {
+			for(int i=0;i<r.getCout();i++) {
 			String euros= new String("€");
 			g.drawString(euros, 290+10*i, 140);
 			}
 			
 			
 			
-			String nbpersonne= new String("recette pour "+ r.nbpersonne+ " personnes");
+			String nbpersonne= new String("recette pour "+ r.getNbpersonne()+ " personnes");
 			g.drawString(nbpersonne, 460, 140);
 			
 			

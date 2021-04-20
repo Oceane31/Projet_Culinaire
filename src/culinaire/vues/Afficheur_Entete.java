@@ -1,5 +1,5 @@
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+package culinaire.vues;
+
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
@@ -8,9 +8,11 @@ import java.awt.TextField;
 import java.util.Observable;
 import java.util.Observer;
 
+import culinaire.controleurs.BarreDeRecherche;
+
 public class Afficheur_Entete extends Panel implements Observer{
 
-	public Afficheur_Entete(Controleur c) {
+	public Afficheur_Entete(BarreDeRecherche c) {
 		super();
 		this.setLayout(new GridLayout(1,2));
 		Label titre = new Label("De nouveaux hoRizons");

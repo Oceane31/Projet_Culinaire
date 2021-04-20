@@ -3,7 +3,7 @@
  <object class="java.util.HashMap">
   <void method="put">
    <string>risotto</string>
-   <object class="Recette" id="Recette0">
+   <object class="culinaire.structures.Recette" id="Recette0">
     <void property="cout">
      <int>5</int>
     </void>
@@ -12,17 +12,17 @@
     </void>
     <void property="etapes">
      <void method="add">
-      <object class="Etape" id="Etape0">
+      <object class="culinaire.structures.Etape" id="Etape0">
        <void id="ArrayList0" property="ingredient">
         <void method="add">
-         <object class="Ingredient">
+         <object class="culinaire.structures.Ingredient">
           <void property="ingredient">
-           <string>bouillon de l�gumes</string>
+           <string>bouillon de légumes</string>
           </void>
          </object>
         </void>
         <void method="add">
-         <object class="Ingredient">
+         <object class="culinaire.structures.Ingredient">
           <void property="ingredient">
            <string>oignon</string>
           </void>
@@ -30,12 +30,12 @@
         </void>
        </void>
        <void property="intitule">
-        <string>Verser le bouillon de l�gumes</string>
+        <string>Verser le bouillon de légumes</string>
        </void>
       </object>
      </void>
      <void method="add">
-      <object class="Etape">
+      <object class="culinaire.structures.Etape">
        <void property="ingredient">
         <object idref="ArrayList0"/>
        </void>

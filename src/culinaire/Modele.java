@@ -1,3 +1,9 @@
+package culinaire;
+
+import culinaire.structures.Etape;
+import culinaire.structures.Ingredient;
+import culinaire.structures.Recette;
+
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.BufferedInputStream;
@@ -12,31 +18,42 @@ import java.util.Observable;
 
 public class Modele extends Observable {
 
-	public HashMap<String,Recette> listeRecettes;
-	public Recette recetteSelectionee;
-	
+	private HashMap<String,Recette> dicoRecettes;
+	private Recette recetteSelectionee;
+	private int etapeEnCours;
+
 	public Modele() {
-		this.listeRecettes=new HashMap<String,Recette>();
+		this.dicoRecettes =new HashMap<String,Recette>();
 	}
 	
 	public void chargerXML() throws IOException, ClassNotFoundException {
 		FileInputStream fis = new FileInputStream(new File("recettes.xml"));
 		BufferedInputStream bis = new BufferedInputStream(fis);
 		XMLDecoder decoder = new XMLDecoder(bis);
-		this.listeRecettes = (HashMap<String,Recette>)decoder.readObject();
+		this.dicoRecettes = (HashMap<String,Recette>)decoder.readObject();
 		decoder.close();
 		bis.close();
 		fis.close();
 	}
 	
 	public String toString() {
-		return this.listeRecettes.toString();
+		return this.dicoRecettes.toString();
 	}
 	
 	public void selectionRecette(String nom) {
-		this.recetteSelectionee=listeRecettes.get(nom);
+		this.recetteSelectionee = dicoRecettes.get(nom);
 		this.setChanged();
 		this.notifyObservers(recetteSelectionee);
+	}
+
+	public void suiviRecette() {
+		this.etapeEnCours = 0;
+		Etape initalie = this.recetteSelectionee.getEtapes().get(0); // Renvoie l'étape 0 (étape 1)
+		this.notifyObservers(initalie);
+	}
+
+	public void suivant() {
+		// Incrémente étape en cours (ATTENTION PAS DE DEPASSEMENT) et notifie
 	}
 	
 	public void enregistrerXML() {
@@ -44,7 +61,7 @@ public class Modele extends Observable {
 			FileOutputStream fos = new FileOutputStream(new File("recettes.xml"));
 			BufferedOutputStream bos = new BufferedOutputStream(fos);
 			XMLEncoder encoder = new XMLEncoder(bos);
-			encoder.writeObject(this.listeRecettes);
+			encoder.writeObject(this.dicoRecettes);
 			encoder.flush();
 			encoder.close();
 			bos.close();
@@ -72,7 +89,7 @@ public class Modele extends Observable {
 		Recette risotto=new Recette("risotto",2,5,4,listeEtapes);
 		System.out.println(risotto);
 		
-		m.listeRecettes.put("risotto",risotto);
+		m.dicoRecettes.put("risotto",risotto);
 		m.enregistrerXML();
 		//m.chargerXML();
 		System.out.println(m);

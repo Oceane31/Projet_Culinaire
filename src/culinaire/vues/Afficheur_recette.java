@@ -1,3 +1,7 @@
+package culinaire.vues;
+
+import culinaire.Modele;
+import culinaire.structures.Recette;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
@@ -27,15 +31,16 @@ import javax.swing.SwingConstants;
 public class Afficheur_recette extends Panel implements Observer{
 	
 	Panneau_Recette panneauRecette;
+	Modele m;
 	
 	
 	
-	public Afficheur_recette(ActionListener ecouteur) {
-		
+	public Afficheur_recette(ActionListener ecouteur, Modele m) {
+		this.m = m;
 		
 		JTabbedPane onglets = new JTabbedPane(SwingConstants.TOP);
 		
-		this.panneauRecette = new Panneau_Recette();
+		this.panneauRecette = new Panneau_Recette(m);
 		
 
 	    JPanel onglet1 = new JPanel();
@@ -109,9 +114,11 @@ public class Afficheur_recette extends Panel implements Observer{
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		System.out.println("arg "+arg);
-		Recette r= (Recette) arg;
-		System.out.println("r " +r);
-		this.panneauRecette.afficheRecette(r, this.getGraphics()); //créer la méthode afficheRecette
+		if (arg instanceof Recette) { // Toujours vérifier le type avant d'inférer
+			Recette r = (Recette) arg;
+			System.out.println("r " +r);
+			this.panneauRecette.afficheRecette(r, this.getGraphics()); //créer la méthode afficheRecette
+		}
 	}
 
 
