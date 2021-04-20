@@ -5,7 +5,7 @@ public class Etape {
 	String intitule;
 	int duree;
 	ArrayList<Ingredient> ingredient;
-	Ustensiles ustensile;
+	Ustensile ustensile;
 	
 	public Etape() {
 		this.ingredient = new ArrayList<>();
@@ -49,11 +49,11 @@ public class Etape {
 		this.ingredient = ingredient;
 	}
 
-	public Ustensiles getUstensile() {
+	public Ustensile getUstensile() {
 		return ustensile;
 	}
 
-	public void setUstensile(Ustensiles ustensile) {
+	public void setUstensile(Ustensile ustensile) {
 		this.ustensile = ustensile;
 	}
 	

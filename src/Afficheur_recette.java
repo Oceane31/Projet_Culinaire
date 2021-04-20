@@ -26,16 +26,16 @@ import javax.swing.SwingConstants;
 
 public class Afficheur_recette extends Panel implements Observer{
 	
-	Panel panneauRecette;
+	Panneau_Recette panneauRecette;
 	
 	
 	
 	public Afficheur_recette(ActionListener ecouteur) {
 		
-		String newLine = System.getProperty("line.separator");
+		
 		JTabbedPane onglets = new JTabbedPane(SwingConstants.TOP);
 		
-		this.panneauRecette = new Panel( new FlowLayout());
+		this.panneauRecette = new Panneau_Recette();
 		
 
 	    JPanel onglet1 = new JPanel();
@@ -61,6 +61,7 @@ public class Afficheur_recette extends Panel implements Observer{
 	    
 		JButton poulet_au_curry= new JButton("Poulet au curry");
 		p.add(poulet_au_curry);
+		
 
 		JButton riz_cantonnais= new JButton("Riz Cantonnais");
 		p.add(riz_cantonnais);
@@ -88,7 +89,7 @@ public class Afficheur_recette extends Panel implements Observer{
 		
 		
 		Panel p2=new Panel();
-		JButton salade_fruits_secs= new JButton("Salade de riz"+newLine+ " aux fruits secs");
+		JButton salade_fruits_secs= new JButton("Salade de riz aux fruits secs");
 		//le newLine est cense etre un retour a� la ligne mais ca marche pas 
 		p2.add(salade_fruits_secs);
 		
@@ -107,11 +108,10 @@ public class Afficheur_recette extends Panel implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		System.out.println(arg);
+		System.out.println("arg "+arg);
 		Recette r= (Recette) arg;
-		JTextArea recette= new JTextArea();
-		recette.setText(r.toString());
-		panneauRecette.add(recette);
+		System.out.println("r " +r);
+		this.panneauRecette.afficheRecette(r, this.getGraphics()); //créer la méthode afficheRecette
 	}
 
 

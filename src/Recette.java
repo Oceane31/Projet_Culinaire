@@ -6,7 +6,7 @@ public class Recette implements Serializable{
 	private static final long serialVersionUID=1L;
 	
 	String nom;
-	ArrayList<Etape> etapes;
+	ArrayList<Etape> etapes; 
 	int difficulte;
 	int cout;
 	int nbpersonne;

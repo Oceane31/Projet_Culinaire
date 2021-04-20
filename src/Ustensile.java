@@ -1,9 +1,9 @@
 
-public class Ustensiles {
+public class Ustensile {
 
 	String ustensile;
 	
-	public Ustensiles(String u) {
+	public Ustensile(String u) {
 		this.ustensile=u;
 	}
 	

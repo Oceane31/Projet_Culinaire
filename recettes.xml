@@ -45,6 +45,7 @@
       </object>
      </void>
     </void>
+    
     <void property="nbpersonne">
      <int>4</int>
     </void>
