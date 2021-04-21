@@ -6,12 +6,7 @@ import culinaire.structures.Recette;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
@@ -25,15 +20,28 @@ public class Modele extends Observable {
 	public Modele() {
 		this.dicoRecettes =new HashMap<String,Recette>();
 	}
+
+	public void init() {
+		this.chargerXML();
+	}
 	
-	public void chargerXML() throws IOException, ClassNotFoundException {
-		FileInputStream fis = new FileInputStream(new File("recettes.xml"));
+	public void chargerXML() {
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream(new File("recettes.xml"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		BufferedInputStream bis = new BufferedInputStream(fis);
 		XMLDecoder decoder = new XMLDecoder(bis);
 		this.dicoRecettes = (HashMap<String,Recette>)decoder.readObject();
 		decoder.close();
-		bis.close();
-		fis.close();
+		try {
+			bis.close();
+			fis.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public String toString() {
@@ -48,14 +56,18 @@ public class Modele extends Observable {
 
 	public void suiviRecette() {
 		this.etapeEnCours = 0;
-		Etape initalie = this.recetteSelectionee.getEtapes().get(0); // Renvoie l'étape 0 (étape 1)
-		this.notifyObservers(initalie);
+		Etape initalise = this.recetteSelectionee.getEtapes().get(0); // Renvoie l'étape 0 (étape 1)
+		this.notifyObservers(initalise);
 	}
 
 	public void suivant() {
 		// Incrémente étape en cours (ATTENTION PAS DE DEPASSEMENT) et notifie
 	}
-	
+
+	public void imageRecette(String nomRecette){
+
+	}
+
 	public void enregistrerXML() {
 		try {
 			FileOutputStream fos = new FileOutputStream(new File("recettes.xml"));
@@ -94,6 +106,4 @@ public class Modele extends Observable {
 		//m.chargerXML();
 		System.out.println(m);
 	}
-
-	
 }

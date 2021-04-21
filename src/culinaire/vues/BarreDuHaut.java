@@ -10,9 +10,9 @@ import java.util.Observer;
 
 import culinaire.controleurs.BarreDeRecherche;
 
-public class Afficheur_Entete extends Panel implements Observer{
+public class BarreDuHaut extends Panel implements Observer{
 
-	public Afficheur_Entete(BarreDeRecherche c) {
+	public BarreDuHaut(BarreDeRecherche c) {
 		super();
 		this.setLayout(new GridLayout(1,2));
 		Label titre = new Label("De nouveaux hoRizons");

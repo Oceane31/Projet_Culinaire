@@ -2,90 +2,50 @@ package culinaire;
 
 import culinaire.controleurs.BarreDeRecherche;
 import culinaire.controleurs.SelectionRecettes;
-import culinaire.vues.Afficheur_Entete;
-import culinaire.vues.Afficheur_Image;
-import culinaire.vues.Afficheur_recette;
+import culinaire.vues.*;
 
-import java.awt.BorderLayout;
-import java.awt.Frame;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
-public class GUI extends Frame implements WindowListener{
+public class GUI extends JFrame {
 
-	public static void main(String[] args) throws ClassNotFoundException, IOException {
-		
+	public static int LARGEUR = 1000;
+	public static int HAUTEUR = 500;
 
+	public static void main(String[] args) {
 		new GUI();
 	}
 
-	public GUI() throws ClassNotFoundException, IOException {
+	public GUI() {
 		
 		Modele modele= new Modele();
-		modele.chargerXML();
 
 		SelectionRecettes c=new SelectionRecettes(modele);
 		BarreDeRecherche b = new BarreDeRecherche(modele);
 		
 		this.setLayout(new BorderLayout());
-		this.addWindowListener(this);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("application");
-		
-		Afficheur_Entete entete=new Afficheur_Entete(b);
+
+		// VUES
+
+		BarreDuHaut entete = new BarreDuHaut(b);
+
+		ListeRecettes listeRecettes = new ListeRecettes(c, modele);
+		modele.addObserver(listeRecettes);
+
+		DetailRecette afficheurDetails = new DetailRecette(modele);
+		modele.addObserver(afficheurDetails);
+
+		PanneauCentral panneau = new PanneauCentral(listeRecettes, afficheurDetails);
+
 		this.add(entete,BorderLayout.NORTH);
-		
-		Afficheur_Image im=new Afficheur_Image();
-		this.add(im,BorderLayout.EAST);
-		
-		Afficheur_recette panneauGauche = new Afficheur_recette(c, modele);
-		modele.addObserver(panneauGauche);
-		this.add(panneauGauche, BorderLayout.WEST);
-		
-		this.pack();
-		//modele.init()
+		this.add(panneau, BorderLayout.CENTER);
+
+		this.setSize(new Dimension(GUI.LARGEUR, GUI.HAUTEUR));
+		modele.init();
 		this.setVisible(true);
-		
-	}
-	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowClosing(WindowEvent e) {
-		// TODO Auto-generated method stub
-		System.exit(0);
-	}
-
-	@Override
-	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
-		 
-	}
-
-	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 	
