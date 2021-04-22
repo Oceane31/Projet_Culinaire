@@ -15,6 +15,12 @@ public class Recette implements Serializable {
     private int cout;
     private int nbpersonne;
     private Image image;
+    
+    public enum Type implements Serializable {
+    	ENTREE, PLAT, DESSERT
+    }
+    
+    private Type type;
 
     public Recette() {
         this.etapes = new ArrayList();
@@ -58,6 +64,10 @@ public class Recette implements Serializable {
 
     public int getDifficulte() {
         return difficulte;
+    }
+    
+    public Type getType() {
+    	return type;
     }
 
 

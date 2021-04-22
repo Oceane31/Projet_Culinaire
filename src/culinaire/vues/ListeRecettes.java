@@ -2,19 +2,25 @@ package culinaire.vues;
 
 import culinaire.GUI;
 import culinaire.Modele;
+import culinaire.structures.Recette;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.*;
 
-public class ListeRecettes extends JPanel implements Observer{
+public class ListeRecettes extends JPanel implements Observer {
 
 	private Modele m;
+	private HashMap<String, Recette> listeRecetes;
 
-	public ListeRecettes(ActionListener ecouteur, Modele m) {
+	public ListeRecettes(ActionListener ecouteur, Modele m, MouseListener mouse) {
 		super();
 
 		this.m = m;
@@ -27,12 +33,12 @@ public class ListeRecettes extends JPanel implements Observer{
 		int hauteur = (int) (GUI.HAUTEUR * 0.8);
 
 		// Taille de chaque onglet
-		Dimension tailleOnglets = new Dimension((int) (largeur * 0.8), (int) (hauteur * 0.95));
+		Dimension tailleOnglets = new Dimension((int) (largeur * 0.8), (int) (hauteur * 0.24));
 
 	    JPanel onglet1 = new JPanel();
 	    onglet1.setLayout(new BorderLayout());
 	    //onglet1.setPreferredSize(new Dimension(largeur, hauteur));
-	    onglets.addTab("Entrée", onglet1);
+	    onglets.addTab("EntrÃ©e", onglet1);
 	    
 	    JPanel onglet2 = new JPanel();
 	    onglet2.setLayout(new BorderLayout());
@@ -44,11 +50,12 @@ public class ListeRecettes extends JPanel implements Observer{
 	    //onglet3.setPreferredSize(new Dimension(largeur, hauteur));
 	    onglets.addTab("Dessert", onglet3);
 
-	    // FlowLayout pour mettre en retour à la ligne les boutons
+	    // FlowLayout pour mettre en retour Ã  la ligne les boutons
 	    Panel p=new Panel(new FlowLayout());
 		p.setPreferredSize(tailleOnglets);
 	    JButton risotto_nature= new JButton("Risotto nature");
 	    risotto_nature.setName("risotto");
+	    risotto_nature.addMouseListener(mouse);
 	    p.add(risotto_nature);
 	    risotto_nature.addActionListener(ecouteur);
 	    
@@ -85,7 +92,7 @@ public class ListeRecettes extends JPanel implements Observer{
 		Panel p2=new Panel(new FlowLayout());
 		p2.setPreferredSize(tailleOnglets);
 		JButton salade_fruits_secs= new JButton("Salade de riz aux fruits secs");
-		//le newLine est cense etre un retour a� la ligne mais ca marche pas 
+		//le newLine est cense etre un retour aï¿½ la ligne mais ca marche pas 
 		p2.add(salade_fruits_secs);
 		
 		JButton salade_thon = new JButton("Salade de riz au thon");
@@ -100,18 +107,33 @@ public class ListeRecettes extends JPanel implements Observer{
 	}
 	
 	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		
+		if (this.listeRecetes != null) {
+			
+			// Créer les onglets
+			
+			this.listeRecetes.forEach((nom, recette) -> {
+				// Créer le bouton et ajouter les Listeners
+				
+				// Si entrée ou plat ou dessert
+				// On ajoute dans le bon onglet
+			});
+			
+			// Ajouter les onglets au JPanel
+			
+		}
+	}
+
+	@Override
 	public void update(Observable o, Object arg) {
-
+		if (arg instanceof HashMap) {
+			this.listeRecetes = (HashMap<String, Recette>) arg;
+			this.repaint();
+		}
 	}
 
 
-
-	
-	
-	private void afficherRecette() { // elle va afficher la recette au bon endroit donc dans le panel_recette
-		/*System.out.println("recette " + ma_recette.getNom());
-		JLabel recette= new JLabel("recette");
-		panel_recette.add(recette);*/
-	}
 	
 }

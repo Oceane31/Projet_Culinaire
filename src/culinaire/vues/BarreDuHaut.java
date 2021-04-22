@@ -1,5 +1,6 @@
 package culinaire.vues;
 
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
@@ -7,6 +8,8 @@ import java.awt.Rectangle;
 import java.awt.TextField;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.JLabel;
 
 import culinaire.controleurs.BarreDeRecherche;
 
@@ -17,6 +20,7 @@ public class BarreDuHaut extends Panel implements Observer{
 		this.setLayout(new GridLayout(1,2));
 		Label titre = new Label("De nouveaux hoRizons");
 		titre.setBounds(new Rectangle(500,40));
+		titre.setFont(new Font("Calibri", Font.BOLD|Font.ITALIC , 20));
 		titre.setAlignment(Label.CENTER);
 		this.add(titre);
 		TextField recherche = new TextField("Tapez votre recherche",25);

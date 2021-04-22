@@ -1,6 +1,8 @@
 package culinaire;
 
+import culinaire.Modele;
 import culinaire.controleurs.BarreDeRecherche;
+import culinaire.controleurs.BoutonSurvole;
 import culinaire.controleurs.SelectionRecettes;
 import culinaire.vues.*;
 
@@ -32,7 +34,8 @@ public class GUI extends JFrame {
 
 		BarreDuHaut entete = new BarreDuHaut(b);
 
-		ListeRecettes listeRecettes = new ListeRecettes(c, modele);
+		BoutonSurvole bs = new BoutonSurvole(modele);
+		ListeRecettes listeRecettes = new ListeRecettes(c, modele, bs);
 		modele.addObserver(listeRecettes);
 
 		DetailRecette afficheurDetails = new DetailRecette(modele);
