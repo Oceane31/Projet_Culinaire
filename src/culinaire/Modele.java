@@ -3,13 +3,12 @@ package culinaire;
 import culinaire.structures.Etape;
 import culinaire.structures.Ingredient;
 import culinaire.structures.Recette;
+import culinaire.structures.Ustensile;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Observable;
+import java.util.*;
 
 public class Modele extends Observable {
 
@@ -65,8 +64,9 @@ public class Modele extends Observable {
 	}
 
 	public void imageRecette(String nomRecette){
-
-	}
+        Recette recette = dicoRecettes.get(nomRecette);
+		this.notifyObservers(recette.getImage());
+    }
 
 	public void enregistrerXML() {
 		try {
@@ -86,24 +86,63 @@ public class Modele extends Observable {
 	
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Modele m =new Modele();
-		
-		Ingredient bouillondelegumes=new Ingredient("bouillon de l�gumes");
-		ArrayList<Ingredient> ingredients=new ArrayList<Ingredient>();
-		ingredients.add(bouillondelegumes);
-		
-		Ingredient oignon = new Ingredient("oignon");
-		ingredients.add(oignon);
-		
-		ArrayList<Etape> listeEtapes = new ArrayList<Etape>();
-		listeEtapes.add(new Etape ("Verser le bouillon de l�gumes",ingredients));
-		listeEtapes.add(new Etape ("Faire revenir les oignons", ingredients));
-		
-		Recette risotto=new Recette("risotto",2,5,4,listeEtapes);
-		System.out.println(risotto);
-		
-		m.dicoRecettes.put("risotto",risotto);
-		m.enregistrerXML();
+
+		List<List<String>> records = new ArrayList<>();
+		try (BufferedReader br = new BufferedReader(new FileReader("risotto.csv"))) {
+			String line;
+			String nomRecette = null;
+			int difficulte = 0;
+			int cout = 0;
+			int nb = 0;
+			ArrayList<Etape> listeEtapes = null;
+			ArrayList<Ingredient> ingredients = new ArrayList<>();
+			ArrayList<Ustensile> ustensiles = new ArrayList<>();
+			while ((line = br.readLine()) != null) {
+				String[] values = line.split(",");
+				if (values[0].equals("recette")) {
+					if (nomRecette != null) {
+						m.dicoRecettes.put(nomRecette, new Recette(nomRecette, difficulte, cout, nb, listeEtapes));
+					}
+					nomRecette = values[1];
+					difficulte = Integer.parseInt(values[2]);
+					cout = Integer.parseInt(values[3]);
+					nb = Integer.parseInt(values[4]);
+					listeEtapes = new ArrayList<Etape>();
+				} else{
+					Ingredient ingr = null;
+					for (Ingredient i : ingredients) {
+						if (i.getIngredient().equals(values[2])) {
+							ingr = i;
+							break;
+						}
+					}
+					if (ingr == null) {
+						ingr = new Ingredient(values[2]);
+						ingredients.add(ingr);
+					}
+
+					Ustensile ust = null;
+					for (Ustensile i : ustensiles) {
+						if (i.getUstensile().equals(values[4])) {
+							ust = i;
+							break;
+						}
+					}
+					if (ust == null) {
+						ust = new Ustensile(values[4]);
+						ustensiles.add(ust);
+					}
+
+					listeEtapes.add(new Etape(values[0], values[1], ingr, Integer.parseInt(values[3]), ust));
+				}
+			}
+			if (nomRecette != null) {
+				m.dicoRecettes.put(nomRecette, new Recette(nomRecette, difficulte, cout, nb, listeEtapes));
+			}
+			m.enregistrerXML();
+			System.out.println(m.dicoRecettes);
+		}
+		//System.out.println(risotto);
 		//m.chargerXML();
-		System.out.println(m);
 	}
 }

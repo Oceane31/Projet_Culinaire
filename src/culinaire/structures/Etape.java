@@ -1,30 +1,28 @@
 package culinaire.structures;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Etape {
+public class Etape implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String intitule;
 	private int duree;
-	private ArrayList<Ingredient> ingredient;
+	private Ingredient ingredient;
 	private Ustensile ustensile;
+	private String quantite;
 	
-	public Etape() {
-		this.ingredient = new ArrayList<>();
-	}
-	
-	public Etape(String i, ArrayList<Ingredient> l) {
+	public Etape(String i, String qt, Ingredient l, int d, Ustensile u) {
 		this.intitule=i;
+		this.quantite = qt;
 		this.ingredient=l;
-		//this.duree=d;
+		this.duree=d;
+		this.ustensile = u;
 	}
 	
 	public String toString() {
 		return "etape: "+this.intitule +"\n" + "duree : "+this.duree+"\n" + "listeIngredients: "+this.ingredient+"\n" +"ustensiles:"+this.ustensile+"\n" ;
-	}
-	
-	public void ajouterIngredient(Ingredient i) {
-		this.ingredient.add(i);
 	}
 
 	public String getIntitule() {
@@ -43,12 +41,8 @@ public class Etape {
 		this.duree = duree;
 	}
 
-	public ArrayList<Ingredient> getIngredient() {
+	public Ingredient getIngredient() {
 		return ingredient;
-	}
-
-	public void setIngredient(ArrayList<Ingredient> ingredient) {
-		this.ingredient = ingredient;
 	}
 
 	public Ustensile getUstensile() {

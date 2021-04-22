@@ -1,56 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="11.0.9.1" class="java.beans.XMLDecoder">
+<java version="1.8.0_201" class="java.beans.XMLDecoder">
  <object class="java.util.HashMap">
   <void method="put">
    <string>risotto</string>
-   <object class="culinaire.structures.Recette" id="Recette0">
+   <object class="culinaire.structures.Recette">
     <void property="cout">
      <int>5</int>
     </void>
     <void property="difficulte">
      <int>2</int>
     </void>
-    <void property="etapes">
-     <void method="add">
-      <object class="culinaire.structures.Etape" id="Etape0">
-       <void id="ArrayList0" property="ingredient">
-        <void method="add">
-         <object class="culinaire.structures.Ingredient">
-          <void property="ingredient">
-           <string>bouillon de légumes</string>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="culinaire.structures.Ingredient">
-          <void property="ingredient">
-           <string>oignon</string>
-          </void>
-         </object>
-        </void>
-       </void>
-       <void property="intitule">
-        <string>Verser le bouillon de légumes</string>
-       </void>
-      </object>
-     </void>
-     <void method="add">
-      <object class="culinaire.structures.Etape">
-       <void property="ingredient">
-        <object idref="ArrayList0"/>
-       </void>
-       <void property="intitule">
-        <string>Faire revenir les oignons</string>
-       </void>
-      </object>
-     </void>
-    </void>
-    
     <void property="nbpersonne">
      <int>4</int>
     </void>
     <void property="nom">
      <string>risotto</string>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>paella</string>
+   <object class="culinaire.structures.Recette">
+    <void property="cout">
+     <int>10</int>
+    </void>
+    <void property="difficulte">
+     <int>4</int>
+    </void>
+    <void property="nbpersonne">
+     <int>16</int>
+    </void>
+    <void property="nom">
+     <string>paella</string>
     </void>
    </object>
   </void>

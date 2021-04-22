@@ -1,6 +1,10 @@
 package culinaire.structures;
 
-public class Ustensile {
+import java.io.Serializable;
+
+public class Ustensile implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String ustensile;
 	

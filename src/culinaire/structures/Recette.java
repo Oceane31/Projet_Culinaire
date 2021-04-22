@@ -95,13 +95,12 @@ public class Recette implements Serializable {
         this.nbpersonne = nbpersonne;
     }
 
-
-
-
     public void ajouterEtape(Etape e) {
         this.etapes.add(e);
     }
 
-
+    public Image getImage() {
+        return this.image;
+    }
 }
 

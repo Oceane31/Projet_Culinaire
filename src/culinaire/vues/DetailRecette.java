@@ -105,16 +105,13 @@ public class DetailRecette extends JPanel implements Observer {
 
 		Font fontigd= new Font("Arial", Font.PLAIN, 14);
 		g.setFont(fontigd);
-		ArrayList<Ingredient> liste= new ArrayList<Ingredient>();
+		Ingredient ingredient = null;
 		for(int i = 0; i< recette.getEtapes().size(); i++) {
 			Etape e= recette.getEtapes().get(i);
-			liste=e.getIngredient();
+			ingredient=e.getIngredient();
 		}
-		for(int i=0; i<liste.size(); i++) {
-			Ingredient igt=liste.get(i);
-			String ingredient= new String(igt.getIngredient());
-			g.drawString("- "+ingredient, 100, 190+20*i);
-		}
+			String ingredientStr= new String(ingredient.getIngredient());
+			g.drawString("- "+ingredientStr, 100, 190+20*0);
 		for(int i = 0; i< recette.getEtapes().size(); i++) {
 			Etape e= recette.getEtapes().get(i);
 			Ustensile u=e.getUstensile();

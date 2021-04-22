@@ -87,7 +87,8 @@ public class ListeRecettes extends JPanel implements Observer {
 		JButton galette_de_riz = new JButton("Galette de riz");
 		p1.add(galette_de_riz);
 		onglet3.add(p1, BorderLayout.NORTH);
-		
+
+
 		
 		Panel p2=new Panel(new FlowLayout());
 		p2.setPreferredSize(tailleOnglets);
@@ -101,10 +102,14 @@ public class ListeRecettes extends JPanel implements Observer {
 		JButton avocat_salade = new JButton("Avocat au riz en salade");
 		p2.add(avocat_salade);
 		onglet1.add(p2, BorderLayout.NORTH);
-		
+
+
+
 	    this.add(onglets);
 	    this.setPreferredSize(new Dimension(largeur, hauteur));
 	}
+
+
 	
 	@Override
 	public void paint(Graphics g) {
