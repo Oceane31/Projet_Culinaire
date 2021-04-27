@@ -80,9 +80,9 @@ public class DetailRecette extends JPanel implements Observer {
 		Font font=new Font("Arial",Font.BOLD, 40);
 		String titreRecette= new String(recette.getNom());
 		g.setFont(font);
-		g.drawString(titreRecette, 270, 100);
+		g.drawString(titreRecette, 250, 50);
 
-		Font fontTitre2=new Font("Arial",Font.BOLD, 35);
+		/*Font fontTitre2=new Font("Arial",Font.BOLD, 35);
 		g.setFont(fontTitre2);
 
 		JButton demarrerRecette= new JButton("Démarrer la recette");
@@ -90,7 +90,7 @@ public class DetailRecette extends JPanel implements Observer {
 		this.add(demarrerRecette, BorderLayout.SOUTH);
 
 		// String titre2= new String("Déroulement de la recette");
-		// g.drawString(titre2, 150, 250);
+		// g.drawString(titre2, 150, 250);*/
 
 
 		String listeingredients= new String("liste d'ingrédients:");
@@ -99,8 +99,8 @@ public class DetailRecette extends JPanel implements Observer {
 		map.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 		Font newFont = new Font(map);
 		g.setFont(newFont);
-		g.drawString(listeingredients, 10, 170);
-		g.drawString(ustensiles,270, 170);
+		g.drawString(listeingredients, 10, 160);
+		g.drawString(ustensiles,270, 160);
 
 
 		Font fontigd= new Font("Arial", Font.PLAIN, 14);
@@ -109,9 +109,10 @@ public class DetailRecette extends JPanel implements Observer {
 		for(int i = 0; i< recette.getEtapes().size(); i++) {
 			Etape e= recette.getEtapes().get(i);
 			ingredient=e.getIngredient();
+			String ingredientStr= new String(ingredient.toString());
+			g.drawString("- "+ingredientStr, 100, 190+20*i);
 		}
-			String ingredientStr= new String(ingredient.getIngredient());
-			g.drawString("- "+ingredientStr, 100, 190+20*0);
+			
 		for(int i = 0; i< recette.getEtapes().size(); i++) {
 			Etape e= recette.getEtapes().get(i);
 			Ustensile u=e.getUstensile();
@@ -143,16 +144,16 @@ public class DetailRecette extends JPanel implements Observer {
 			g.drawString(etoile, 80+10*i, 140);
 		}
 		String cout= new String("coût: ");
-		g.drawString(cout, 250, 140);
+		g.drawString(cout, 200, 140);
 		for(int i = 0; i< recette.getCout(); i++) {
 		String euros= new String("€");
-		g.drawString(euros, 290+10*i, 140);
+		g.drawString(euros, 240+10*i, 140);
 		}
 
 
 
 		String nbpersonne= new String("recette pour "+ recette.getNbpersonne()+ " personnes");
-		g.drawString(nbpersonne, 460, 140);
+		g.drawString(nbpersonne, 400, 140);
 	}
 
 	/**
