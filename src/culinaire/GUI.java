@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class GUI extends JFrame {
 
-	public static int LARGEUR = 1000;
+	public static int LARGEUR = 1200;
 	public static int HAUTEUR = 500;
 
 	public static void main(String[] args) {
@@ -40,6 +40,7 @@ public class GUI extends JFrame {
 
 		DetailRecette afficheurDetails = new DetailRecette(modele);
 		modele.addObserver(afficheurDetails);
+		
 
 		PanneauCentral panneau = new PanneauCentral(listeRecettes, afficheurDetails);
 

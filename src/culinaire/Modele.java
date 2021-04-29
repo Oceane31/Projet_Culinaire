@@ -17,7 +17,7 @@ public class Modele extends Observable {
 	private int etapeEnCours;
 
 	public Modele() {
-		this.dicoRecettes =new HashMap<String,Recette>();
+		this.dicoRecettes = new HashMap<String,Recette>();
 	}
 
 	public void init() {
@@ -74,6 +74,8 @@ public class Modele extends Observable {
 			BufferedOutputStream bos = new BufferedOutputStream(fos);
 			XMLEncoder encoder = new XMLEncoder(bos);
 			encoder.writeObject(this.dicoRecettes);
+			
+			// Attention il faut regarder comment serializer le Array d'etapes
 			encoder.flush();
 			encoder.close();
 			bos.close();

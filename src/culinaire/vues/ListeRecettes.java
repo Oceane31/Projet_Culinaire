@@ -29,7 +29,7 @@ public class ListeRecettes extends JPanel implements Observer {
 		
 		JTabbedPane onglets = new JTabbedPane(SwingConstants.TOP);
 
-		int largeur = (int) (GUI.LARGEUR * 0.4);
+		int largeur = (int) (GUI.LARGEUR * 0.5);
 		int hauteur = (int) (GUI.HAUTEUR * 0.8);
 
 		// Taille de chaque onglet
@@ -38,7 +38,7 @@ public class ListeRecettes extends JPanel implements Observer {
 	    JPanel onglet1 = new JPanel();
 	    onglet1.setLayout(new BorderLayout());
 	    //onglet1.setPreferredSize(new Dimension(largeur, hauteur));
-	    onglets.addTab("EntrÃ©e", onglet1);
+	    onglets.addTab("Entr�e", onglet1);
 	    
 	    JPanel onglet2 = new JPanel();
 	    onglet2.setLayout(new BorderLayout());
