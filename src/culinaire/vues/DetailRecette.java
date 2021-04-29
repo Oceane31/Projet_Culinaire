@@ -125,16 +125,75 @@ public class DetailRecette extends JPanel implements Observer {
 		
 		/* -----------------  FIN DES ATTRIBUTS DE LA ZONE NORTH -------------------- */
 		
+		//Création de la font pour le titre des ingrédients et des ustensiles 
+		Map map = (new Font("Arial", Font.PLAIN, 14)).getAttributes();
+		map.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+		Font fontTitre2 = new Font(map);
+		
+		//Création de la font pour les liste d'ingrédients et d'ustensiles
+		Font fontlistes= new Font("Arial", Font.PLAIN, 14);
 		
 		/* -----------------  PARTIE DE LA ZONE EAST -------------------- */
-		/* ----------------- liste des ingredients ---------------------- */
+		/* ----------------- liste des ustensiles ---------------------- */
+		JPanel east=new JPanel();
+		east.setLayout(new BorderLayout());
 		
+		String ustensiles = new String("Ustensiles nécessaires:");
+		JLabel ustensilesNecesssaires = new JLabel(ustensiles, JLabel.CENTER);
+		ustensilesNecesssaires.setFont(fontTitre2);
+		
+		east.add(ustensilesNecesssaires, BorderLayout.NORTH);
+		
+		for(int i = 0; i< recette.getEtapes().size(); i++) {
+			Etape e= recette.getEtapes().get(i);
+			Ustensile u=e.getUstensile();
+			if(u!=null) {
+				String ustensile= new String(u.getUstensile());
+				JLabel labelUstensile=new JLabel(ustensile);
+				labelUstensile.setFont(fontlistes);
+				east.add(labelUstensile, BorderLayout.CENTER);
+			}
+			else {
+				JLabel pasdUstensile=new JLabel("pas d'ustensile nécessaire");
+				east.add(pasdUstensile, BorderLayout.CENTER);
+			}
+		}
+		
+		// ajout de east dans le panel de la recette 
+		frameDetailRecette.add(east,  BorderLayout.EAST);
 		
 		/* -----------------  FIN DE LA ZONE EASTH -------------------- */
 		
 		/* -----------------  PARTIE DE LA ZONE WEST -------------------- */
-		/* ----------------- liste des ustensiles ---------------------- */
+		/* ----------------- liste des ingredients ---------------------- */
+		JPanel west= new JPanel();
+		west.setLayout(new BorderLayout());
 		
+		String listeIngredients = new String("Liste d'ingrédients:");
+		JLabel titreigd = new JLabel(listeIngredients, JLabel.CENTER);
+		titreigd.setFont(fontTitre2);
+		
+		west.add(titreigd, BorderLayout.NORTH);
+		
+		
+		for(int i = 0; i< recette.getEtapes().size(); i++) {
+			Etape e= recette.getEtapes().get(i);
+			Ingredient ingredient=e.getIngredient();
+			if(ingredient!=null) {
+				String ingredientStr= new String(ingredient.toString());
+				JLabel labelIngredient=new JLabel(ingredientStr);
+				labelIngredient.setFont(fontlistes);
+				west.add(labelIngredient, BorderLayout.CENTER);
+			}
+			else {
+				JLabel pasdIgd=new JLabel("pas d'ingrédients nécessaire");
+				east.add(pasdIgd, BorderLayout.CENTER);
+			}
+		}
+		
+		
+		// ajout de west dans le panel de la recette 
+		frameDetailRecette.add(west,  BorderLayout.WEST);
 		
 		/* -----------------  FIN DE LA ZONE WEST -------------------- */
 		
@@ -142,38 +201,32 @@ public class DetailRecette extends JPanel implements Observer {
 		/* -----------------  PARTIE DE LA ZONE SOUTH -------------------- */
 		/* ----------------- liste des etapes ---------------------- */
 		
+		JPanel south=new JPanel();
+		south.setLayout(new BorderLayout());
+		
+		JButton flecheDroite= new JButton(">");
+		south.add(flecheDroite, BorderLayout.EAST);
+		
+		JButton flecheGauche= new JButton("<");
+		south.add(flecheGauche, BorderLayout.WEST);
+		
+		//Je mets juste un titre Etape pour montrer ou seront placer les étapes
+		String titreEtape= new String("ETAPES");
+		
+		JLabel titreE = new JLabel(titreEtape, JLabel.CENTER);
+		titreE.setFont(fontTitre);
+		south.add(titreE, BorderLayout.NORTH);
+		
+		
+		// ajout de south dans le panel de la recette 
+		frameDetailRecette.add(south,  BorderLayout.SOUTH);
 		
 		/* -----------------  FIN DE LA ZONE SOUTH -------------------- */
 		
-		// String nbpersonne= new String("recette pour "+ recette.getNbpersonne()+ " personnes");
-		// g.drawString(nbpersonne, 400, 140);
+		
 		
 	
-		
-		
-		String listeingredients = new String("liste d'ingr�dients:");
-		String ustensiles = new String("Ustensiles n�cessaires:");
-		Map map = (new Font("Arial", Font.PLAIN, 14)).getAttributes();
-		map.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-		Font fontAttribut = new Font(map);
-		
-		/*JLabel liste
-		g.setFont(newFont);
-		g.drawString(listeingredients, 10, 160);
-		g.drawString(ustensiles,270, 160);
-		
-		g.setFont(font);
-		g.drawString(titreRecette, 250, 50);*/
-
-		/*Font fontTitre2=new Font("Arial",Font.BOLD, 35);
-		g.setFont(fontTitre2);
-
-		JButton demarrerRecette= new JButton("D�marrer la recette");
-		demarrerRecette.setName("D�marrer la recette");
-		this.add(demarrerRecette, BorderLayout.SOUTH);
-
-		// String titre2= new String("D�roulement de la recette");
-		// g.drawString(titre2, 150, 250);*/
+	
 
 
 		
@@ -189,27 +242,10 @@ public class DetailRecette extends JPanel implements Observer {
 		
 
 
-		Font fontigd= new Font("Arial", Font.PLAIN, 14);
-		g.setFont(fontigd);
-		Ingredient ingredient = null;
-		for(int i = 0; i< recette.getEtapes().size(); i++) {
-			Etape e= recette.getEtapes().get(i);
-			ingredient=e.getIngredient();
-			String ingredientStr= new String(ingredient.toString());
-			g.drawString("- "+ingredientStr, 100, 190+20*i);
-		}
+		
+		
 			
-		for(int i = 0; i< recette.getEtapes().size(); i++) {
-			Etape e= recette.getEtapes().get(i);
-			Ustensile u=e.getUstensile();
-			if(u!=null) {
-				String ustensile= new String(u.getUstensile());
-				g.drawString("- " +ustensile,270 , 190+20*i);
-			}
-			else {
-				g.drawString("pas d'ustensiles ne�cessaires", 270, 190);
-			}
-		}
+		
 
 		/*
 		for(int i=0; i<r.getEtapes().size(); i++) {
