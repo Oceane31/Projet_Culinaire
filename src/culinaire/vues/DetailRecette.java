@@ -34,7 +34,7 @@ public class DetailRecette extends JPanel implements Observer {
 	Image image;
 
 	/**
-	 * @param m Modele gï¿½nï¿½rï¿½ dans GUI
+	 * @param m Modele généré dans GUI
 	 */
 	public DetailRecette(Modele m) {
 		super();
@@ -73,8 +73,12 @@ public class DetailRecette extends JPanel implements Observer {
 
 		if (this.image != null) {
 			g.drawImage(this.image, 0, 0, this.getWidth(), this.getHeight(), null);
+<<<<<<< HEAD
 		} 
 		if (this.recette.getNom() != null && !this.recette.getNom().isEmpty()) {
+=======
+		} else if (this.recette != null) {
+>>>>>>> 84cb2c6f243a2818a08eb535fbe4126beeada2a9
 			afficheRecette();
 		}
 	}
@@ -144,7 +148,11 @@ public class DetailRecette extends JPanel implements Observer {
 		JPanel east = new JPanel();
 		east.setLayout(new BorderLayout());
 
+<<<<<<< HEAD
 		String ustensiles = new String("Ustensiles nï¿½cessaires:");
+=======
+		String ustensiles = new String("Ustensiles nécessaires:");
+>>>>>>> 84cb2c6f243a2818a08eb535fbe4126beeada2a9
 		JLabel ustensilesNecesssaires = new JLabel(ustensiles, JLabel.CENTER);
 		ustensilesNecesssaires.setFont(fontTitre2);
 
@@ -159,7 +167,11 @@ public class DetailRecette extends JPanel implements Observer {
 				labelUstensile.setFont(fontlistes);
 				east.add(labelUstensile, BorderLayout.CENTER);
 			} else {
+<<<<<<< HEAD
 				JLabel pasdUstensile = new JLabel("pas d'ustensile nï¿½cessaire");
+=======
+				JLabel pasdUstensile = new JLabel("pas d'ustensile nécessaire");
+>>>>>>> 84cb2c6f243a2818a08eb535fbe4126beeada2a9
 				east.add(pasdUstensile, BorderLayout.CENTER);
 			}
 		}
@@ -174,7 +186,11 @@ public class DetailRecette extends JPanel implements Observer {
 		JPanel west = new JPanel();
 		west.setLayout(new BorderLayout());
 
+<<<<<<< HEAD
 		String listeIngredients = new String("Liste d'ingrï¿½dients:");
+=======
+		String listeIngredients = new String("Liste d'ingrédients:");
+>>>>>>> 84cb2c6f243a2818a08eb535fbe4126beeada2a9
 		JLabel titreigd = new JLabel(listeIngredients, JLabel.CENTER);
 		titreigd.setFont(fontTitre2);
 
@@ -193,7 +209,11 @@ public class DetailRecette extends JPanel implements Observer {
 				panelIngredients.add(labelIngredient);
 				// west.add(labelIngredient, BorderLayout.CENTER);
 			} else {
+<<<<<<< HEAD
 				JLabel pasdIgd = new JLabel("pas d'ingrï¿½dients nï¿½cessaire");
+=======
+				JLabel pasdIgd = new JLabel("pas d'ingrédients nécessaire");
+>>>>>>> 84cb2c6f243a2818a08eb535fbe4126beeada2a9
 				east.add(pasdIgd, BorderLayout.CENTER);
 			}
 		}
