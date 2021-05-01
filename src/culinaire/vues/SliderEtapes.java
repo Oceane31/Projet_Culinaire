@@ -2,7 +2,9 @@ package culinaire.vues;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,8 +12,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
+import culinaire.GUI;
 import culinaire.controleurs.SliderLayout;
 
 public class SliderEtapes extends JPanel {
@@ -22,14 +26,22 @@ public class SliderEtapes extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	JPanel panelEtapes = new JPanel(new SliderLayout());
-	JButton flecheDroite = new JButton(">");
-	JButton flecheGauche = new JButton("<");
+	MyButton flecheDroite = new MyButton(">");
+	MyButton flecheGauche = new MyButton("<");
+	static int largeur = (int) (DetailRecette.largeur );
+	static int hauteur = (int) (DetailRecette.hauteur*0.5);
 
 	public SliderEtapes() {
 		this.setLayout(new BorderLayout());
-		this.add(panelEtapes, BorderLayout.CENTER);
-		this.add(flecheGauche, BorderLayout.WEST);
-		this.add(flecheDroite, BorderLayout.EAST);
+		panelEtapes.setBackground(Color.WHITE);
+		JPanel panelFleches = new JPanel(new BorderLayout());
+		panelFleches.setBackground(Color.WHITE);
+		this.add(panelEtapes, BorderLayout.NORTH);
+		panelFleches.add(flecheGauche, BorderLayout.WEST);
+		panelFleches.add(flecheDroite, BorderLayout.EAST);
+		this.add(panelFleches, BorderLayout.SOUTH);
+		this.setBackground(Color.WHITE);
+		this.setPreferredSize(new Dimension(largeur,hauteur));
 
 		// Au clic sur le bouton fleche de gauche, on appelle la methode previous
 		flecheGauche.addActionListener(new ActionListener() {
@@ -45,6 +57,7 @@ public class SliderEtapes extends JPanel {
 			}
 		});
 	}
+
 
 	public void previous() {
 		SliderLayout sl = (SliderLayout)this.panelEtapes.getLayout();

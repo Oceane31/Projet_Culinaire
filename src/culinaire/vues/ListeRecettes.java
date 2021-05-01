@@ -9,10 +9,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class ListeRecettes extends JPanel implements Observer {
@@ -29,47 +31,52 @@ public class ListeRecettes extends JPanel implements Observer {
 		
 		JTabbedPane onglets = new JTabbedPane(SwingConstants.TOP);
 
-		int largeur = (int) (GUI.LARGEUR * 0.5);
-		int hauteur = (int) (GUI.HAUTEUR * 0.8);
+		int largeur = (int) (GUI.LARGEUR *0.5 );
+		int hauteur = (int) (GUI.HAUTEUR*0.5 );
 
 		// Taille de chaque onglet
-		Dimension tailleOnglets = new Dimension((int) (largeur * 0.8), (int) (hauteur * 0.24));
+		Dimension tailleOnglets = new Dimension((int) (largeur * 0.8), (int) (hauteur ));
 
 	    JPanel onglet1 = new JPanel();
+	    onglet1.setBackground(Color.WHITE);
 	    onglet1.setLayout(new BorderLayout());
 	    //onglet1.setPreferredSize(new Dimension(largeur, hauteur));
-	    onglets.addTab("Entr�e", onglet1);
+	    onglets.addTab("Entr�e", onglet1);
 	    
 	    JPanel onglet2 = new JPanel();
 	    onglet2.setLayout(new BorderLayout());
+	    onglet2.setBackground(Color.WHITE);
 		//onglet2.setPreferredSize(new Dimension(largeur, hauteur));
 	    onglets.addTab("Plat", onglet2);
 
 	    JPanel onglet3 = new JPanel();
 	    onglet3.setLayout(new BorderLayout());
+	    onglet3.setBackground(Color.WHITE);
 	    //onglet3.setPreferredSize(new Dimension(largeur, hauteur));
 	    onglets.addTab("Dessert", onglet3);
+	    onglets.setBackground(Color.WHITE);
 
 	    // FlowLayout pour mettre en retour Ã  la ligne les boutons
-	    Panel p=new Panel(new FlowLayout());
+	    Panel p=new Panel();
+	    p.setLayout(new GridLayout(3,2));
 		p.setPreferredSize(tailleOnglets);
-	    JButton risotto_nature= new JButton("Risotto nature");
+		BouttonRecette risotto_nature= new BouttonRecette("Risotto nature");
 	    risotto_nature.setName("risotto");
 	    risotto_nature.addMouseListener(mouse);
 	    p.add(risotto_nature);
 	    risotto_nature.addActionListener(ecouteur);
-	    
-		JButton poulet_au_curry= new JButton("Poulet au curry");
+	
+		BouttonRecette poulet_au_curry= new BouttonRecette("Poulet au curry");
 		p.add(poulet_au_curry);
 		
 
-		JButton riz_cantonnais= new JButton("Riz Cantonnais");
+		BouttonRecette riz_cantonnais= new BouttonRecette("Riz Cantonnais");
 		p.add(riz_cantonnais);
 		
-		JButton paella= new JButton("Paella");
+		BouttonRecette paella= new BouttonRecette("Paella");
 		p.add(paella);
 		
-		JButton riz_senegalais = new JButton("Riz senegalais");
+		BouttonRecette riz_senegalais = new BouttonRecette("Riz senegalais");
 		p.add(riz_senegalais);
 		onglet2.add(p, BorderLayout.NORTH);
 
@@ -107,6 +114,7 @@ public class ListeRecettes extends JPanel implements Observer {
 
 	    this.add(onglets);
 	    this.setPreferredSize(new Dimension(largeur, hauteur));
+	    this.setBackground(Color.WHITE);
 	}
 
 

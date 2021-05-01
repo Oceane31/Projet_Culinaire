@@ -13,6 +13,7 @@ public class PanneauCentral extends JPanel {
     public PanneauCentral(Component listeRecettes, Component detailRecettes) {
         super();
         this.setLayout(new BorderLayout());
+        
 
         this.add(listeRecettes, BorderLayout.WEST);
         this.add(detailRecettes, BorderLayout.EAST);

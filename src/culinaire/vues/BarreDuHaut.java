@@ -1,5 +1,6 @@
 package culinaire.vues;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -24,7 +25,7 @@ public class BarreDuHaut extends Panel implements Observer{
 		titre.setAlignment(Label.CENTER);
 		this.add(titre);
 		TextField recherche = new TextField("Tapez votre recherche",25);
-		
+		this.setBackground(Color.WHITE);
 		recherche.addFocusListener(c);
 		this.add(recherche);
 	}

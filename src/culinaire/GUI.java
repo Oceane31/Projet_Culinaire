@@ -27,6 +27,7 @@ public class GUI extends JFrame {
 		BarreDeRecherche b = new BarreDeRecherche(modele);
 		
 		this.setLayout(new BorderLayout());
+		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("application");
 

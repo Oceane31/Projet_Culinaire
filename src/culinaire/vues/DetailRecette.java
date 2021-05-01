@@ -32,6 +32,8 @@ public class DetailRecette extends JPanel implements Observer {
 	Recette recette = new Recette();
 	Modele m;
 	Image image;
+	static int largeur = (int) (GUI.LARGEUR * 0.5);
+	static int hauteur = (int) (GUI.HAUTEUR * 0.8);
 
 	/**
 	 * @param m Modele g�n�r� dans GUI
@@ -41,8 +43,7 @@ public class DetailRecette extends JPanel implements Observer {
 		this.m = m;
 		this.setLayout(new BorderLayout());
 
-		int largeur = (int) (GUI.LARGEUR * 0.5);
-		int hauteur = (int) (GUI.HAUTEUR * 0.8);
+		
 
 		// Taille de 60% � droite
 		this.setPreferredSize(new Dimension(largeur, hauteur));
@@ -94,12 +95,14 @@ public class DetailRecette extends JPanel implements Observer {
 		JFrame frameDetailRecette = new JFrame();
 		frameDetailRecette.setLayout(new BorderLayout());
 
-		int largeur = (int) (GUI.LARGEUR);
+
+		int largeur = (int) (GUI.LARGEUR*0.5);
 		int hauteur = (int) (GUI.HAUTEUR);
 
 		// Creation de la partie haute de la recette
 		JPanel header = new JPanel();
 		header.setLayout(new BorderLayout());
+		header.setBackground(Color.WHITE);
 
 		// Titre recette
 		String titreRecette = new String(recette.getNom());
@@ -134,7 +137,12 @@ public class DetailRecette extends JPanel implements Observer {
 		frameDetailRecette.add(header, BorderLayout.NORTH);
 
 		/* ----------------- FIN DES ATTRIBUTS DE LA ZONE NORTH -------------------- */
+		/* ----------------- PARTIE DE LA ZONE CENTER -------------------- */
+		JPanel center = new JPanel();
+		center.setBackground(Color.WHITE);
+		frameDetailRecette.add(center, BorderLayout.CENTER);
 
+		/* ----------------- FIN DES ATTRIBUTS DE LA ZONE CENTER -------------------- */
 		// Creation de la font pour le titre des ingredients et des ustensiles
 		Map map = (new Font("Arial", Font.PLAIN, 14)).getAttributes();
 		map.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
@@ -147,15 +155,19 @@ public class DetailRecette extends JPanel implements Observer {
 		/* ----------------- liste des ustensiles ---------------------- */
 		JPanel east = new JPanel();
 		east.setLayout(new BorderLayout());
+		east.setBackground(Color.WHITE);
 
 		String ustensiles = new String("Ustensiles n�cessaires:");
 
 
-		JLabel ustensilesNecesssaires = new JLabel(ustensiles, JLabel.CENTER);
+		JLabel ustensilesNecesssaires = new JLabel(ustensiles, JLabel.LEFT);
 		ustensilesNecesssaires.setFont(fontTitre2);
 
 		east.add(ustensilesNecesssaires, BorderLayout.NORTH);
-
+		
+		JPanel panelUstensiles = new JPanel();
+		panelUstensiles.setBackground(Color.WHITE);
+		panelUstensiles.setLayout(new BoxLayout(panelUstensiles, BoxLayout.Y_AXIS));
 		for (int i = 0; i < recette.getEtapes().size(); i++) {
 			Etape e = recette.getEtapes().get(i);
 			Ustensile u = e.getUstensile();
@@ -163,7 +175,7 @@ public class DetailRecette extends JPanel implements Observer {
 				String ustensile = new String(u.getUstensile());
 				JLabel labelUstensile = new JLabel(ustensile);
 				labelUstensile.setFont(fontlistes);
-				east.add(labelUstensile, BorderLayout.CENTER);
+				panelUstensiles.add(labelUstensile);
 			} else {
 
 				JLabel pasdUstensile = new JLabel("pas d'ustensile n�cessaire");
@@ -171,6 +183,7 @@ public class DetailRecette extends JPanel implements Observer {
 				east.add(pasdUstensile, BorderLayout.CENTER);
 			}
 		}
+		east.add(panelUstensiles, BorderLayout.CENTER);
 
 		// ajout de east dans le panel de la recette
 		frameDetailRecette.add(east, BorderLayout.EAST);
@@ -181,6 +194,7 @@ public class DetailRecette extends JPanel implements Observer {
 		/* ----------------- liste des ingredients ---------------------- */
 		JPanel west = new JPanel();
 		west.setLayout(new BorderLayout());
+		west.setBackground(Color.WHITE);
 
 
 		String listeIngredients = new String("Liste d'ingr�dients:");
@@ -191,6 +205,7 @@ public class DetailRecette extends JPanel implements Observer {
 		west.add(titreigd, BorderLayout.NORTH);
 
 		JPanel panelIngredients = new JPanel();
+		panelIngredients.setBackground(Color.WHITE);
 		panelIngredients.setLayout(new BoxLayout(panelIngredients, BoxLayout.Y_AXIS));
 		for (int i = 0; i < this.recette.getEtapes().size(); i++) {
 			Etape e = this.recette.getEtapes().get(i);
@@ -222,15 +237,7 @@ public class DetailRecette extends JPanel implements Observer {
 
 		SliderEtapes slider = new SliderEtapes();
 		
-		// ajout de fausses etapes en attendant que le xml fonctionne
-		/*ArrayList<String> faussesEtapes = new ArrayList<String>();
-		faussesEtapes.add("Etape 1");
-		faussesEtapes.add("Etape 2");
-		faussesEtapes.add("Etape 3");
-		
-		for(int i=0; i < faussesEtapes.size(); i++) { 
-			slider.addSliderComponent(new JLabel(faussesEtapes.get(i)));
-		 }*/
+	
 		for(int i=0; i < this.recette.getEtapes().size(); i++) { 
 			Etape e = this.recette.getEtapes().get(i);
 			String etape= new String(i+1 +") " +e.getIntitule());
@@ -238,21 +245,7 @@ public class DetailRecette extends JPanel implements Observer {
 		 }
 		
 		slider.refresh();
-		//south.setLayout(new BorderLayout());
-
 		
-		/*JButton flecheDroite = new JButton(">");
-		south.add(flecheDroite, BorderLayout.EAST);
-
-		JButton flecheGauche = new JButton("<");
-		south.add(flecheGauche, BorderLayout.WEST);
-
-		// Je mets juste un titre Etape pour montrer ou seront placer les étapes
-		String titreEtape = new String("ETAPES");
-
-		JLabel titreE = new JLabel(titreEtape, JLabel.CENTER);
-		titreE.setFont(fontTitre);
-		south.add(titreE, BorderLayout.NORTH);*/
 
 		// ajout de south dans le panel de la recette
 		frameDetailRecette.add(slider, BorderLayout.SOUTH);
