@@ -1,5 +1,6 @@
 package culinaire.structures;
 
+import java.beans.ConstructorProperties;
 import java.io.Serializable;
 
 public class Ustensile implements Serializable {
@@ -8,8 +9,9 @@ public class Ustensile implements Serializable {
 
 	private String ustensile;
 	
-	public Ustensile(String u) {
-		this.ustensile=u;
+	@ConstructorProperties("ustensile")
+	public Ustensile(String ustensile) {
+		this.ustensile=ustensile;
 	}
 	
 	public static void main(String[] args) {

@@ -1,13 +1,16 @@
 package culinaire.structures;
 
+import java.beans.ConstructorProperties;
+
 public class Ingredient {
 
 	private String ingredient;
 	
 	public Ingredient() {}
 	
-	public Ingredient(String i) {
-		this.ingredient=i;
+	@ConstructorProperties("ingredient")
+	public Ingredient(String ingredient) {
+		this.ingredient=ingredient;
 	}
 
 	public String getIngredient() {
