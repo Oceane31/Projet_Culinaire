@@ -60,38 +60,74 @@ public class ListeRecettes extends JPanel implements Observer {
 	    Panel p=new Panel();
 	    p.setLayout(new GridLayout(3,2));
 		p.setPreferredSize(tailleOnglets);
+
 		BouttonRecette risotto_nature= new BouttonRecette("Risotto nature");
+
+
 	    risotto_nature.setName("risotto");
 	    risotto_nature.addMouseListener(mouse);
 	    p.add(risotto_nature);
 	    risotto_nature.addActionListener(ecouteur);
+
 	
 		BouttonRecette poulet_au_curry= new BouttonRecette("Poulet au curry");
+
+		poulet_au_curry.setName("poulet_au_curry");
+		poulet_au_curry.addMouseListener(mouse);
+		poulet_au_curry.addActionListener(ecouteur);
+
 		p.add(poulet_au_curry);
-		
+
 
 		BouttonRecette riz_cantonnais= new BouttonRecette("Riz Cantonnais");
 		p.add(riz_cantonnais);
 		
+
+		riz_cantonnais.setName("riz_cantonnais");
+		riz_cantonnais.addMouseListener(mouse);
+		riz_cantonnais.addActionListener(ecouteur);
+		p.add(riz_cantonnais);
+		
 		BouttonRecette paella= new BouttonRecette("Paella");
 		p.add(paella);
+		paella.setName("paella");
+		paella.addMouseListener(mouse);
+		paella.addActionListener(ecouteur);
+		p.add(paella);
+
 		
 		BouttonRecette riz_senegalais = new BouttonRecette("Riz senegalais");
+		riz_senegalais.setName("riz_senegalais");
+		riz_senegalais.addMouseListener(mouse);
+		riz_senegalais.addActionListener(ecouteur);
+
 		p.add(riz_senegalais);
 		onglet2.add(p, BorderLayout.NORTH);
 
 		Panel p1=new Panel(new FlowLayout());
 		p1.setPreferredSize(tailleOnglets);
 		JButton riz_au_lait= new JButton("Riz au lait");
+		riz_au_lait.setName("riz_au_lait");
+		riz_au_lait.addMouseListener(mouse);
+		riz_au_lait.addActionListener(ecouteur);
 		p1.add(riz_au_lait);
 		
 		JButton riz_sucre_au_four= new JButton("Riz sucre au four");
+		riz_sucre_au_four.setName("riz_sucre_au_four");
+		riz_sucre_au_four.addMouseListener(mouse);
+		riz_sucre_au_four.addActionListener(ecouteur);
 		p1.add(riz_sucre_au_four);
 		
 		JButton gateau_caramel= new JButton("Gateau de riz au caramel");
+		gateau_caramel.setName("gateau_caramel");
+		gateau_caramel.addMouseListener(mouse);
+		gateau_caramel.addActionListener(ecouteur);
 		p1.add(gateau_caramel);
 		
 		JButton galette_de_riz = new JButton("Galette de riz");
+		galette_de_riz.setName("galette_de_riz");
+		galette_de_riz.addMouseListener(mouse);
+		galette_de_riz.addActionListener(ecouteur);
 		p1.add(galette_de_riz);
 		onglet3.add(p1, BorderLayout.NORTH);
 
@@ -100,13 +136,21 @@ public class ListeRecettes extends JPanel implements Observer {
 		Panel p2=new Panel(new FlowLayout());
 		p2.setPreferredSize(tailleOnglets);
 		JButton salade_fruits_secs= new JButton("Salade de riz aux fruits secs");
-		//le newLine est cense etre un retour aï¿½ la ligne mais ca marche pas 
+		salade_fruits_secs.setName("salade_fruits_secs");
+		salade_fruits_secs.addMouseListener(mouse);
+		salade_fruits_secs.addActionListener(ecouteur);
 		p2.add(salade_fruits_secs);
 		
 		JButton salade_thon = new JButton("Salade de riz au thon");
+		salade_thon.setName("salade_thon");
+		salade_thon.addMouseListener(mouse);
+		salade_thon.addActionListener(ecouteur);
 		p2.add(salade_thon);
 		
 		JButton avocat_salade = new JButton("Avocat au riz en salade");
+		avocat_salade.setName("avocat_salade");
+		avocat_salade.addMouseListener(mouse);
+		avocat_salade.addActionListener(ecouteur);
 		p2.add(avocat_salade);
 		onglet1.add(p2, BorderLayout.NORTH);
 
