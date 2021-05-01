@@ -3,12 +3,60 @@
  <object class="java.util.HashMap">
   <void method="put">
    <string>risotto</string>
-   <object class="culinaire.structures.Recette">
+   <object class="culinaire.structures.Recette" id="Recette0">
     <void property="cout">
      <int>5</int>
     </void>
     <void property="difficulte">
      <int>2</int>
+    </void>
+    <void property="etapes">
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Verser le bouillon de lÃ©gumes dans une casserole</string>
+       <string>2 L</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Bouillon de lÃ©gumes</string>
+       </object>
+       <int>1</int>
+       <object class="culinaire.structures.Ustensile" id="Ustensile0">
+        <string>Casserole</string>
+       </object>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Placer la casserole sur le feu vif et portez Ã  Ã©bulition</string>
+       <string></string>
+       <object class="culinaire.structures.Ingredient" id="Ingredient0">
+        <string></string>
+       </object>
+       <int>10</int>
+       <object class="culinaire.structures.Ustensile" id="Ustensile1">
+        <string></string>
+       </object>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>DÃ¨s lâ€™Ã©bullition baissez le feu Ã  feu doux et laissez mijoter le bouillon afin de le conserver chaud</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>1</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Faire revenir les oignons</string>
+       <string>1 gros</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Oignon</string>
+       </object>
+       <int>5</int>
+       <object idref="Ustensile0"/>
+      </object>
+     </void>
     </void>
     <void property="nbpersonne">
      <int>4</int>
@@ -20,12 +68,25 @@
   </void>
   <void method="put">
    <string>paella</string>
-   <object class="culinaire.structures.Recette">
+   <object class="culinaire.structures.Recette" id="Recette1">
     <void property="cout">
      <int>10</int>
     </void>
     <void property="difficulte">
      <int>4</int>
+    </void>
+    <void property="etapes">
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Allumeeeeer le feu</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>2</int>
+       <object class="culinaire.structures.Ustensile">
+        <string>Poelle</string>
+       </object>
+      </object>
+     </void>
     </void>
     <void property="nbpersonne">
      <int>16</int>

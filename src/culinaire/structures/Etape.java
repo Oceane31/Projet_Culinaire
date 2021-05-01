@@ -1,7 +1,7 @@
 package culinaire.structures;
 
+import java.beans.ConstructorProperties;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Etape implements Serializable {
 
@@ -13,12 +13,13 @@ public class Etape implements Serializable {
 	private Ustensile ustensile;
 	private String quantite;
 	
-	public Etape(String i, String qt, Ingredient l, int d, Ustensile u) {
-		this.intitule=i;
-		this.quantite = qt;
-		this.ingredient=l;
-		this.duree=d;
-		this.ustensile = u;
+	@ConstructorProperties({"intitule", "quantite", "ingredient", "duree", "ustensile"})
+	public Etape(String intitule, String quantite, Ingredient ingredient, int duree, Ustensile ustensile) {
+		this.intitule=intitule;
+		this.quantite = quantite;
+		this.ingredient=ingredient;
+		this.duree=duree;
+		this.ustensile = ustensile;
 	}
 	
 	public String toString() {
@@ -51,6 +52,13 @@ public class Etape implements Serializable {
 
 	public void setUstensile(Ustensile ustensile) {
 		this.ustensile = ustensile;
+	}
+	
+	public String getQuantite() {
+		return quantite;
+	}
+	public void Quantite(String quantite) {
+		this.quantite = quantite;
 	}
 	
 	
