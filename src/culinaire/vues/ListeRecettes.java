@@ -10,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
@@ -60,8 +61,24 @@ public class ListeRecettes extends JPanel implements Observer {
 	    Panel p=new Panel();
 	    p.setLayout(new GridLayout(3,2));
 		p.setPreferredSize(tailleOnglets);
+		
+		// Liste des plats
+        final ArrayList<String> mesPlats= new ArrayList<String>();
+        mesPlats.add("risotto");
+        mesPlats.add("riz et poulet au curry");
+        mesPlats.add("Riz Cantonnais");
+        mesPlats.add("Paella");
+        mesPlats.add("Riz sénégalais");
 
-		BouttonRecette risotto_nature= new BouttonRecette("Risotto nature");
+        for(final String plat : mesPlats) {
+            BouttonRecette buttonPlat = new BouttonRecette(plat);
+            buttonPlat.setName(plat);
+            buttonPlat.addMouseListener(mouse);
+            buttonPlat.addActionListener(ecouteur);
+            p.add(buttonPlat);
+        }
+
+		/*BouttonRecette risotto_nature= new BouttonRecette("Risotto nature");
 
 	    risotto_nature.setName("risotto");
 	    risotto_nature.addMouseListener(mouse);
@@ -100,13 +117,29 @@ public class ListeRecettes extends JPanel implements Observer {
 		riz_senegalais.addMouseListener(mouse);
 		riz_senegalais.addActionListener(ecouteur);
 
-		p.add(riz_senegalais);
+		p.add(riz_senegalais);*/
+		
 		onglet2.add(p, BorderLayout.NORTH);
 
 		Panel p1=new Panel(new GridLayout(2,2));
 		p1.setPreferredSize(tailleOnglets);
 		
-		BouttonRecette riz_au_lait= new BouttonRecette("Riz au lait");
+		// Liste des desserts
+        final ArrayList<String> mesDesserts = new ArrayList<String>();
+        mesDesserts.add("Riz au lit");
+        mesDesserts.add("Riz sucre au four");
+        mesDesserts.add("Gateau de riz au caramel");
+        mesDesserts.add("Galette de riz");
+
+        for(final String entree : mesDesserts) {
+            BouttonRecette buttonDesserts = new BouttonRecette(entree);
+            buttonDesserts.setName(entree);
+            buttonDesserts.addMouseListener(mouse);
+            buttonDesserts.addActionListener(ecouteur);
+            p1.add(buttonDesserts);
+        }
+		
+		/*BouttonRecette riz_au_lait= new BouttonRecette("Riz au lait");
 		riz_au_lait.setName("riz_au_lait");
 		riz_au_lait.addMouseListener(mouse);
 		riz_au_lait.addActionListener(ecouteur);
@@ -128,7 +161,9 @@ public class ListeRecettes extends JPanel implements Observer {
 		galette_de_riz.setName("galette_de_riz");
 		galette_de_riz.addMouseListener(mouse);
 		galette_de_riz.addActionListener(ecouteur);
-		p1.add(galette_de_riz);
+		p1.add(galette_de_riz);*/
+        
+        
 		onglet3.add(p1, BorderLayout.NORTH);
 
 
@@ -136,6 +171,20 @@ public class ListeRecettes extends JPanel implements Observer {
 		Panel p2=new Panel(new GridLayout(2,2));
 		p2.setPreferredSize(tailleOnglets);
 		
+		// Liste des entrees
+        final ArrayList<String> mesEntrees = new ArrayList<String>();
+        mesEntrees.add("Salade de riz aux fruits secs");
+        mesEntrees.add("Salade de riz au thon");
+        mesEntrees.add("Avocat au riz en salade");
+
+        for(final String entree : mesEntrees) {
+            BouttonRecette buttonEntree = new BouttonRecette(entree);
+            buttonEntree.setName(entree);
+            buttonEntree.addMouseListener(mouse);
+            buttonEntree.addActionListener(ecouteur);
+            p2.add(buttonEntree);
+        }
+        /*
 		BouttonRecette salade_fruits_secs= new BouttonRecette("Salade de riz aux fruits secs");
 		salade_fruits_secs.setName("salade_fruits_secs");
 		salade_fruits_secs.addMouseListener(mouse);
@@ -152,7 +201,8 @@ public class ListeRecettes extends JPanel implements Observer {
 		avocat_salade.setName("avocat_salade");
 		avocat_salade.addMouseListener(mouse);
 		avocat_salade.addActionListener(ecouteur);
-		p2.add(avocat_salade);
+		p2.add(avocat_salade);*/
+        
 		onglet1.add(p2, BorderLayout.NORTH);
 
 
