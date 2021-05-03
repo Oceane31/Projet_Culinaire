@@ -5,12 +5,14 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
@@ -28,6 +30,7 @@ public class SliderEtapes extends JPanel {
 	JPanel panelEtapes = new JPanel(new SliderLayout());
 	MyButton flecheDroite = new MyButton(">");
 	MyButton flecheGauche = new MyButton("<");
+	JLabel titre= new JLabel("Déroulement de la recette", JLabel.CENTER);
 	static int largeur = (int) (DetailRecette.largeur );
 	static int hauteur = (int) (DetailRecette.hauteur*0.5);
 
@@ -36,12 +39,16 @@ public class SliderEtapes extends JPanel {
 		panelEtapes.setBackground(Color.WHITE);
 		JPanel panelFleches = new JPanel(new BorderLayout());
 		panelFleches.setBackground(Color.WHITE);
-		this.add(panelEtapes, BorderLayout.NORTH);
+		this.add(panelEtapes, BorderLayout.CENTER);
 		panelFleches.add(flecheGauche, BorderLayout.WEST);
 		panelFleches.add(flecheDroite, BorderLayout.EAST);
 		this.add(panelFleches, BorderLayout.SOUTH);
 		this.setBackground(Color.WHITE);
 		this.setPreferredSize(new Dimension(largeur,hauteur));
+		Font fontTitre = new Font("Arial", Font.BOLD, 35);
+		titre.setFont(fontTitre);
+		this.add(titre, BorderLayout.NORTH);
+
 
 		// Au clic sur le bouton fleche de gauche, on appelle la methode previous
 		flecheGauche.addActionListener(new ActionListener() {

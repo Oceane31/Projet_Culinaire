@@ -14,7 +14,7 @@ public class Recette implements Serializable {
     private int difficulte;
     private int cout;
     private int nbpersonne;
-    private Image image;
+    //private Image image;
     
     public enum Type implements Serializable {
     	ENTREE, PLAT, DESSERT
@@ -33,9 +33,9 @@ public class Recette implements Serializable {
         this.nbpersonne = nb;
         this.etapes = l;
         // Enregistrement de l'image selon le nom de la recette, en minuscule
-        this.image = Toolkit.getDefaultToolkit().getImage("/ressources/images/recettes/"
+        /*this.image = Toolkit.getDefaultToolkit().getImage("/ressources/images/recettes/"
                 + this.nom.toLowerCase().replace(' ', '_')
-                + ".jpg");
+                + ".jpg");*/
     }
 
     public String toString() {
@@ -99,8 +99,8 @@ public class Recette implements Serializable {
         this.etapes.add(e);
     }
 
-    public Image getImage() {
+    /*public Image getImage() {
         return this.image;
-    }
+    }*/
 }
 

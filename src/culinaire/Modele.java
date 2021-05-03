@@ -65,7 +65,7 @@ public class Modele extends Observable {
 
 	public void imageRecette(String nomRecette){
         Recette recette = dicoRecettes.get(nomRecette);
-		this.notifyObservers(recette.getImage());
+		//this.notifyObservers(recette.getImage());
     }
 
 	public void enregistrerXML() {
@@ -100,6 +100,7 @@ public class Modele extends Observable {
 			ArrayList<Ingredient> ingredients = new ArrayList<>();
 			ArrayList<Ustensile> ustensiles = new ArrayList<>();
 			while ((line = br.readLine()) != null) {
+
 				String[] values = line.split(",");
 				if (values[0].equals("recette")) {
 					if (nomRecette != null) {
@@ -112,12 +113,15 @@ public class Modele extends Observable {
 					listeEtapes = new ArrayList<Etape>();
 				} else{
 					Ingredient ingr = null;
-					for (Ingredient i : ingredients) {
-						if (i.getIngredient().equals(values[2])) {
-							ingr = i;
-							break;
+					if (values.length >1) {
+						for (Ingredient i : ingredients) {
+
+							if (i.getIngredient().equals(values[2])) {
+
+								ingr = i;
+								break;
+							}
 						}
-					}
 					if (ingr == null) {
 						ingr = new Ingredient(values[2]);
 						ingredients.add(ingr);
@@ -147,4 +151,5 @@ public class Modele extends Observable {
 		//System.out.println(risotto);
 		//m.chargerXML();
 	}
+}
 }

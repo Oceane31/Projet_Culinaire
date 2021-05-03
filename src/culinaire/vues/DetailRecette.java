@@ -140,6 +140,8 @@ public class DetailRecette extends JPanel implements Observer {
 		/* ----------------- PARTIE DE LA ZONE CENTER -------------------- */
 		JPanel center = new JPanel();
 		center.setBackground(Color.WHITE);
+		
+		
 		frameDetailRecette.add(center, BorderLayout.CENTER);
 
 		/* ----------------- FIN DES ATTRIBUTS DE LA ZONE CENTER -------------------- */
@@ -157,7 +159,7 @@ public class DetailRecette extends JPanel implements Observer {
 		east.setLayout(new BorderLayout());
 		east.setBackground(Color.WHITE);
 
-		String ustensiles = new String("Ustensiles n�cessaires:");
+		String ustensiles = new String("Ustensiles necessaires:");
 
 
 		JLabel ustensilesNecesssaires = new JLabel(ustensiles, JLabel.LEFT);
@@ -178,7 +180,7 @@ public class DetailRecette extends JPanel implements Observer {
 				panelUstensiles.add(labelUstensile);
 			} else {
 
-				JLabel pasdUstensile = new JLabel("pas d'ustensile n�cessaire");
+				JLabel pasdUstensile = new JLabel("pas d'ustensile necessaire");
 
 				east.add(pasdUstensile, BorderLayout.CENTER);
 			}
@@ -197,7 +199,7 @@ public class DetailRecette extends JPanel implements Observer {
 		west.setBackground(Color.WHITE);
 
 
-		String listeIngredients = new String("Liste d'ingr�dients:");
+		String listeIngredients = new String("Liste d'ingredients:");
 
 		JLabel titreigd = new JLabel(listeIngredients, JLabel.CENTER);
 		titreigd.setFont(fontTitre2);
@@ -219,7 +221,7 @@ public class DetailRecette extends JPanel implements Observer {
 				// west.add(labelIngredient, BorderLayout.CENTER);
 			} else {
 
-				JLabel pasdIgd = new JLabel("pas d'ingr�dients n�cessaire");
+				JLabel pasdIgd = new JLabel("pas d'ingredients n�cessaire");
 
 				east.add(pasdIgd, BorderLayout.CENTER);
 			}
@@ -234,6 +236,8 @@ public class DetailRecette extends JPanel implements Observer {
 
 		/* ----------------- PARTIE DE LA ZONE SOUTH -------------------- */
 		/* ----------------- liste des etapes ---------------------- */
+		
+		
 
 		SliderEtapes slider = new SliderEtapes();
 		
@@ -290,7 +294,7 @@ public class DetailRecette extends JPanel implements Observer {
 	}
 
 	private String getDifficulte() {
-		String difficulte = "difficult�: ";
+		String difficulte = "difficulte: ";
 		for (int i = 0; i < recette.getDifficulte(); i++) {
 			String etoile = new String("*");
 			difficulte = difficulte + etoile;
