@@ -170,6 +170,7 @@ public class DetailRecette extends JPanel implements Observer {
 		JPanel panelUstensiles = new JPanel();
 		panelUstensiles.setBackground(Color.WHITE);
 		panelUstensiles.setLayout(new BoxLayout(panelUstensiles, BoxLayout.Y_AXIS));
+		ArrayList<String> ustensilespresents= new ArrayList<String>();
 		for (int i = 0; i < recette.getEtapes().size(); i++) {
 			Etape e = recette.getEtapes().get(i);
 			Ustensile u = e.getUstensile();
@@ -177,7 +178,11 @@ public class DetailRecette extends JPanel implements Observer {
 				String ustensile = new String(u.getUstensile());
 				JLabel labelUstensile = new JLabel(ustensile);
 				labelUstensile.setFont(fontlistes);
-				panelUstensiles.add(labelUstensile);
+
+				if (ustensilespresents.contains(u.getUstensile())==false) {
+					ustensilespresents.add(u.getUstensile());
+					panelUstensiles.add(labelUstensile);
+				}
 			} else {
 
 				JLabel pasdUstensile = new JLabel("pas d'ustensile necessaire");
@@ -212,12 +217,23 @@ public class DetailRecette extends JPanel implements Observer {
 		for (int i = 0; i < this.recette.getEtapes().size(); i++) {
 			Etape e = this.recette.getEtapes().get(i);
 			Ingredient ingredient = e.getIngredient();
+			String quantite = e.getQuantite();
 			if (ingredient != null && !ingredient.equals("")) {
-				String ingredientStr = new String(ingredient.toString());
-				JLabel labelIngredient = new JLabel(ingredientStr);
-				labelIngredient.setFont(fontlistes);
-				
-				panelIngredients.add(labelIngredient);
+				if (quantite != "" && quantite!= null) {
+					if(quantite.length()==1) {
+					String ingredientStr = new String(ingredient.toString());
+					JLabel labelIngredient = new JLabel(quantite+ " " +ingredientStr);
+					labelIngredient.setFont(fontlistes);
+					panelIngredients.add(labelIngredient);
+					}
+					else {
+						String ingredientStr = new String(ingredient.toString());
+						JLabel labelIngredient = new JLabel(quantite + " de " +ingredientStr);
+						labelIngredient.setFont(fontlistes);
+						panelIngredients.add(labelIngredient);
+					
+					}
+				}
 				// west.add(labelIngredient, BorderLayout.CENTER);
 			} else {
 
@@ -245,7 +261,7 @@ public class DetailRecette extends JPanel implements Observer {
 		for(int i=0; i < this.recette.getEtapes().size(); i++) { 
 			Etape e = this.recette.getEtapes().get(i);
 			String etape= new String(i+1 +") " +e.getIntitule());
-			slider.addSliderComponent(new JLabel(etape));
+			slider.addSliderComponent(new JLabel(etape, JLabel.CENTER));
 		 }
 		
 		slider.refresh();
