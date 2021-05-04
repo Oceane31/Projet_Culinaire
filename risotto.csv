@@ -1,8 +1,8 @@
-recette,risotto,1,1,4,F
+recette,Risotto,1,1,4,F
 Verser le bouillon de legumes dans une casserole,2 L,Bouillon de legumes,1,Casserole,F
 Placer la casserole sur le feu vif et portez a ebullition,,,10,,F
 Des l’ebullition baissez le feu à feu doux et laissez mijoter le bouillon afin de le conserver chaud,,,1,,F
-Faire revenir l'oignon jusqua qu il soit dore,1 gros,Oignon,5,Casserole,F
+Faire revenir loignon jusqua qu il soit dore,1 gros,Oignon,5,Casserole,F
 Ajouter le riz en melangeant bien jusqua ce quil devienne translucide,250g,Riz special risotto,3,,F
 Verser le vin blanc sec puis laisser cuire en remuant frequemment jusqua ce quil soit completement absorbe par le riz,10cl,Vin blanc sec,5,Cuilliere,F
 Verser ensuite une louche de bouillon de legumes dans la casserole puis poursuivez la cuisson en melangeant de temps a autre jusqua ce que le bouillon soit completement evapore,,,1,,F
@@ -45,7 +45,7 @@ Verser la preparation dans le riz au lait puis transvaser le tout dans le moule 
 Prechauffer le four a 180 degres,,,10,Four,F
 Enfourner la preparation,,,30,,F
 recette,Salade de riz au thon,1,1,4,F
-Cuire le riz dans de l'eau bouillante salee,400g,Riz blanc,8,,F
+Cuire le riz dans de leau bouillante salee,400g,Riz blanc,8,,F
 Pendant ce temps couper les tomates en petits morceaux,2,Tomate,2,,F
 Couper les oeufs en morceaux,2,Oeuf dur,2,,F
 Couper la salade en morceaux,3 feuilles,Laitue,2,,F
@@ -56,4 +56,31 @@ Ajouter les tomates le thon la salade et les oeufs,,,1,,F
 Bien melanger puis ajouter la mayonnaise,4 bonnes cuilleres a soupe,mayonnaise,2,Cuillere,F
 Ajouter le vinaigre, 4 ou 5 gouttes,Vinaigre de vin,1,,F
 Bien melanger le tout,,,5,,F
-
+recette,Salade de riz aux fruits secs,1,1,6,F
+Faire gonfler les abricots secs dans de leau,20,Abricots secs,30,Casseroles,F
+Faites cuire le riz dans de leau salee et laissez-le refroidir,1 paquet,Riz Basmatti,20,,F
+Faites dorer les amandes effilees dans un peu dhuile dolive,4 cuillieres a soupe,amandes effilees,15,,F
+Faites une vinaigrette a base dhuile dolive de vinaigre balsamique de sel et de poivre,un peu,huile dolive - vinaigre balsamique - sel/poivre,5,Recipients,F
+Une fois le riz et les abricots refroidis: melangez les ingredients en rajoutant les amandes la ciboulette les pignons de pin la coriande et la muscade,un peu,ciboulette - pignons de pin - coriandre - muscade,1,,F
+Assaisonnez avec la vinaigrette et servez bien frais,,,1,,F
+recette,Riz Cantonnais,1,2,4,F
+Faire revenir lail hache dans lhuile chaude,2 gousses,ail,10,Poele,F
+Faire revenir loignon hache dans lhuile chaude,1,oignon,1,,F
+Ajouter le riz et le laisser frire,300g,riz,1,,F
+Incorporer les crevettes,200g,crevettes,1,Recipient,F
+Incorporer les des de jambon,150g,jambon,1,,F
+Incorporer les petits pois et ajouter un peu d'eau bouillante,150g,petits pois,1,,F
+Saler et poivrer puis bien melanger,un peu,sel/poivre,1,,F
+Couvrir et cuire pendant environ 12 minutes a feu doux,,,1,,F
+Ajouter les oeufs brouilles et melanger,2,oeufs,1,,F
+Saupoudrer de ciboulette hachee,1 bouquet,ciboulette,1,,F
+Decorer avec les brins de persil,1 bouquet,persil,1,,F
+recette,Riz au lait,1,1,6,F
+Rincer le riz et le mettre dans une casserole puis le couvrir deau,150g,riz,1,Casseroles,F
+Saler et porter a ebullition 3-4 minutes,un peu,sel,1,,F
+Faire bouillir le lait,75cl,lait,5,,F
+Rajouter le sucre,100g,sucre,1,,F
+Et enfin rajouter la gousse de vanille fendue en 2,1 gousse,vanille,1,,F
+Jeter le riz egoutte dans le lait et le laisser bouillir en baissant le feu,,,1,,F
+Faire cuire 40 minutes a feu tres doux en remuant souvent,,,1,,F
+Retirer du feu et la gousse de vanille puis laisser refroidir,,,1,,F
