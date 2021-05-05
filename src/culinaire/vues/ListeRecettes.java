@@ -64,8 +64,8 @@ public class ListeRecettes extends JPanel implements Observer {
 		
 		// Liste des plats
         final ArrayList<String> mesPlats= new ArrayList<String>();
-        mesPlats.add("risotto");
-        mesPlats.add("riz et poulet au curry");
+        mesPlats.add("Risotto");
+        mesPlats.add("Riz et poulet au curry");
         mesPlats.add("Riz Cantonnais");
         mesPlats.add("Paella");
         mesPlats.add("Riz sénégalais");
@@ -86,7 +86,7 @@ public class ListeRecettes extends JPanel implements Observer {
 		
 		// Liste des desserts
         final ArrayList<String> mesDesserts = new ArrayList<String>();
-        mesDesserts.add("Riz au lit");
+        mesDesserts.add("Riz au lait");
         mesDesserts.add("Riz sucre au four");
         mesDesserts.add("Gateau de riz au caramel");
         mesDesserts.add("Galette de riz");
