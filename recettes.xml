@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="15.0.2" class="java.beans.XMLDecoder">
+<java version="15.0.1" class="java.beans.XMLDecoder">
  <object class="java.util.HashMap">
   <void method="put">
    <string>risotto</string>
@@ -39,7 +39,7 @@
      </void>
      <void method="add">
       <object class="culinaire.structures.Etape">
-       <string>Des l’ebullition baissez le feu à feu doux et laissez mijoter le bouillon afin de le conserver chaud</string>
+       <string>Des lâ€™ebullition baissez le feu Ã  feu doux et laissez mijoter le bouillon afin de le conserver chaud</string>
        <string></string>
        <object idref="Ingredient0"/>
        <int>1</int>
@@ -217,7 +217,7 @@
       <object class="culinaire.structures.Etape">
        <string>Le placer dans une casserole avec le lait</string>
        <string>70cl</string>
-       <object class="culinaire.structures.Ingredient">
+       <object class="culinaire.structures.Ingredient" id="Ingredient5">
         <string>Lait entier</string>
        </object>
        <int>1</int>
@@ -268,7 +268,7 @@
      </void>
      <void method="add">
       <object class="culinaire.structures.Etape">
-       <string>Verser la preparation dans le riz au lait puis transvaser le tout dans le moule caramélisé</string>
+       <string>Verser la preparation dans le riz au lait puis transvaser le tout dans le moule caramÃ©lisÃ©</string>
        <string></string>
        <object idref="Ingredient0"/>
        <int>2</int>
@@ -281,7 +281,7 @@
        <string></string>
        <object idref="Ingredient0"/>
        <int>10</int>
-       <object class="culinaire.structures.Ustensile">
+       <object class="culinaire.structures.Ustensile" id="Ustensile2">
         <string>Four</string>
        </object>
       </object>
@@ -331,7 +331,7 @@
        <string>6 cuilleres a soupe</string>
        <object idref="Ingredient2"/>
        <int>1</int>
-       <object class="culinaire.structures.Ustensile" id="Ustensile2">
+       <object class="culinaire.structures.Ustensile" id="Ustensile3">
         <string>Cuillere</string>
        </object>
       </object>
@@ -386,7 +386,7 @@
        <string></string>
        <object idref="Ingredient0"/>
        <int>1</int>
-       <object class="culinaire.structures.Ustensile" id="Ustensile3">
+       <object class="culinaire.structures.Ustensile" id="Ustensile4">
         <string>Poele</string>
        </object>
       </object>
@@ -437,7 +437,7 @@
        <string></string>
        <object idref="Ingredient0"/>
        <int>1</int>
-       <object idref="Ustensile3"/>
+       <object idref="Ustensile4"/>
       </object>
      </void>
      <void method="add">
@@ -462,7 +462,7 @@
       <object class="culinaire.structures.Etape">
        <string>Poivrer</string>
        <string>1</string>
-       <object class="culinaire.structures.Ingredient">
+       <object class="culinaire.structures.Ingredient" id="Ingredient6">
         <string>Poivre</string>
        </object>
        <int>1</int>
@@ -508,8 +508,411 @@
    </object>
   </void>
   <void method="put">
-   <string>Salade de riz au thon</string>
+   <string>Paella</string>
    <object class="culinaire.structures.Recette" id="Recette3">
+    <void property="cout">
+     <int>2</int>
+    </void>
+    <void property="difficulte">
+     <int>1</int>
+    </void>
+    <void property="etapes">
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Peler loignon et emincez-le</string>
+       <string>1</string>
+       <object idref="Ingredient1"/>
+       <int>0</int>
+       <object class="culinaire.structures.Ustensile" id="Ustensile5">
+        <string>Couteau</string>
+       </object>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Lavez et epepinez le poivron</string>
+       <string>1</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Poivron rouge</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Enlevez les parties vertes et blanches du poivron puis taillez sa chair en cubes</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Pelez les tomates puis tranchez-les en cubes</string>
+       <string>2</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Tomates</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Faites revenir loignon dans lhuile dolive dans une grande poêle ou un plat a paella</string>
+       <string>3 cuilleres a soupe</string>
+       <object idref="Ingredient2"/>
+       <int>0</int>
+       <object class="culinaire.structures.Ustensile">
+        <string>Grande poêle ou Plat a paella</string>
+       </object>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Ajoutez les des de poivron et les tomates et remuez bien le tout avant de poursuivre la cuisson</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Versez ensuite le riz et mélangez 2 minutes à feu vif</string>
+       <string>200g</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Riz special paella</string>
+       </object>
+       <int>2</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Ajoutez le bouillon chaud</string>
+       <string>1L</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Bouillon de volaille</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Ajoutez les petits pois</string>
+       <string>100g</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Petits pois</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Ajoutez les moules</string>
+       <string>500g</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Moules cuites et decortiquees</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Ajoutez les crevettes</string>
+       <string>12</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Crevettes roses</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Ajoutez les anneaux de calamar</string>
+       <string>100g</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Anneaux de calamars</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Salez</string>
+       <string>1 pincee</string>
+       <object idref="Ingredient3"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Poivrez</string>
+       <string>1 pincee</string>
+       <object idref="Ingredient6"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Parfumez avec le safran</string>
+       <string>1 dosette</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Safran</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Laissez cuire 35 minutes</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>35</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Parsemer la paella de persil</string>
+       <string>4 brins</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Persil plat</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Servez la paella chaude et decoree de quartiers de citrons</string>
+       <string>1</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Citron</string>
+       </object>
+       <int>20</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+    </void>
+    <void property="nbpersonne">
+     <int>4</int>
+    </void>
+    <void property="nom">
+     <string>Paella</string>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>Riz senegalais</string>
+   <object class="culinaire.structures.Recette" id="Recette4">
+    <void property="cout">
+     <int>2</int>
+    </void>
+    <void property="difficulte">
+     <int>1</int>
+    </void>
+    <void property="etapes">
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Couper les cuisses de poulet en deux</string>
+       <string>4</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Cuisses de poulet</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile5"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Mettre a chauffer lhuile dans une cocotte</string>
+       <string>3 cuilleres a soupe</string>
+       <object idref="Ingredient2"/>
+       <int>0</int>
+       <object class="culinaire.structures.Ustensile">
+        <string>Cocotte</string>
+       </object>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Plonger les morceaux de poulet dans lhuile une fois quelle est bien chaude et les faire dorer</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Ecraser les bouillons cubes et les ajouter</string>
+       <string>5</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Bouillons cubes</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Emincer les oignons et les ajouter</string>
+       <string>2</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Oignons</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Faire cuire un peu et ajouter le concentre de tomate</string>
+       <string>1 brique</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Concentre de tomate</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Couper le poivron en petits des et lajouter</string>
+       <string>1</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Poivron vert</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Ajouter un peu d&apos;ail</string>
+       <string>1 gousse</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Ail</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Laisser cuire 10 minutes</string>
+       <string>2</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Carottes</string>
+       </object>
+       <int>10</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Ajouter leau et laisser cuire 20 minutes</string>
+       <string>1L</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Eau</string>
+       </object>
+       <int>20</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Couper le reste des legumes en petits morceaux et les ajouter</string>
+       <string>1 demi</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Chou blanc</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Cuire 20 minutes</string>
+       <string>2</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Poireaux</string>
+       </object>
+       <int>20</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Poivrer et tester</string>
+       <string>1 pincee</string>
+       <object idref="Ingredient6"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Enlever les legumes et le poulet et reserver au chaud</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Mettre le riz dans la cocotte et laisser cuire 30 minutes a feu doux</string>
+       <string>500g</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Riz</string>
+       </object>
+       <int>30</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Mettre le bouillon avec les legumes sil y en a trop</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>25</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Servir dans deux plats differents</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+    </void>
+    <void property="nbpersonne">
+     <int>6</int>
+    </void>
+    <void property="nom">
+     <string>Riz senegalais</string>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>Salade de riz au thon</string>
+   <object class="culinaire.structures.Recette" id="Recette5">
     <void property="cout">
      <int>1</int>
     </void>
@@ -609,7 +1012,7 @@
         <string>mayonnaise</string>
        </object>
        <int>2</int>
-       <object idref="Ustensile2"/>
+       <object idref="Ustensile3"/>
       </object>
      </void>
      <void method="add">
@@ -638,6 +1041,114 @@
     </void>
     <void property="nom">
      <string>Salade de riz au thon</string>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>Riz sucre au four</string>
+   <object class="culinaire.structures.Recette" id="Recette6">
+    <void property="cout">
+     <int>1</int>
+    </void>
+    <void property="difficulte">
+     <int>1</int>
+    </void>
+    <void property="etapes">
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Prechauffez le four thermostat 6</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>0</int>
+       <object idref="Ustensile2"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Mettez le riz dans un plat a four</string>
+       <string>100g</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Riz arborio</string>
+       </object>
+       <int>0</int>
+       <object class="culinaire.structures.Ustensile">
+        <string>Plat a four</string>
+       </object>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Rajoutez-y le sucre</string>
+       <string>100g</string>
+       <object idref="Ingredient4"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Rajoutez-y le sucre vanille</string>
+       <string>1 sachet</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Sucre vanille</string>
+       </object>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Rajoutez-y le lait</string>
+       <string>150cL</string>
+       <object idref="Ingredient5"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Rajoutez-y le beurre</string>
+       <string>5 noisettes</string>
+       <object class="culinaire.structures.Ingredient">
+        <string>Beurre</string>
+       </object>
+       <int>15</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Melangez le tout</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Enfournez pendant 1 heure et laisser le riz au four si la consistance vous parait trop moelleuse</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>60</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+     <void method="add">
+      <object class="culinaire.structures.Etape">
+       <string>Dégustez tiede</string>
+       <string></string>
+       <object idref="Ingredient0"/>
+       <int>0</int>
+       <object idref="Ustensile1"/>
+      </object>
+     </void>
+    </void>
+    <void property="nbpersonne">
+     <int>6</int>
+    </void>
+    <void property="nom">
+     <string>Riz sucre au four</string>
     </void>
    </object>
   </void>
