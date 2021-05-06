@@ -49,7 +49,7 @@ public class GUI extends JFrame {
 		this.add(panneau, BorderLayout.CENTER);
 
 		this.setSize(new Dimension(GUI.LARGEUR, GUI.HAUTEUR));
-		modele.init();
+		modele.init(); 
 		this.setVisible(true);
 		
 	}
