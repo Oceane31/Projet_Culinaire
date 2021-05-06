@@ -43,14 +43,11 @@ public class DetailRecette extends JPanel implements Observer {
 		this.m = m;
 		this.setLayout(new BorderLayout());
 
-		
-
 		// Taille de 60% � droite
 		this.setPreferredSize(new Dimension(largeur, hauteur));
 
 		// Bordure pour distinguer les diff�rents JPanel, � suppr lors du rendu
 		// final
-		this.setBorder(BorderFactory.createLineBorder(Color.RED));
 
 		// D�finition d'une image par d�faut
 		try {
@@ -77,9 +74,6 @@ public class DetailRecette extends JPanel implements Observer {
 
 		} 
 		if (this.recette.getNom() != null && !this.recette.getNom().isEmpty()) {
-
-		
-
 			afficheRecette();
 		}
 	}
@@ -91,6 +85,24 @@ public class DetailRecette extends JPanel implements Observer {
 	 */
 	public void afficheRecette() {
 
+		// Si plusieurs recettes sont trouv�es
+		if(this.m.getRecetteTrouvees().size() > 0) {
+			for(final Recette recetteTrouvee : this.m.getRecetteTrouvees()) {
+				this.createRecetteFrame(recetteTrouvee);
+			}
+			
+		} else { // sinon on affiche la recette qui provient du clic de la recette
+			this.createRecetteFrame(recette);
+		}
+
+	}
+
+	/**
+	 * 
+	 * @param maRecette
+	 */
+	private void createRecetteFrame(Recette maRecette) {
+		
 		// Creation de la fenetre
 		JFrame frameDetailRecette = new JFrame();
 		frameDetailRecette.setLayout(new BorderLayout());
@@ -105,7 +117,7 @@ public class DetailRecette extends JPanel implements Observer {
 		header.setBackground(Color.WHITE);
 
 		// Titre recette
-		String titreRecette = new String(recette.getNom());
+		String titreRecette = new String(maRecette.getNom());
 
 		JLabel titre = new JLabel(titreRecette, JLabel.CENTER);
 		Font fontTitre = new Font("Arial", Font.BOLD, 40);
@@ -128,7 +140,7 @@ public class DetailRecette extends JPanel implements Observer {
 		header.add(lCout, BorderLayout.CENTER);
 
 		// Attribut nb personnes sur la zone EAST
-		JLabel lnbPersonnes = new JLabel("recette pour " + recette.getNbpersonne() + " personnes", JLabel.CENTER);
+		JLabel lnbPersonnes = new JLabel("recette pour " + maRecette.getNbpersonne() + " personnes", JLabel.CENTER);
 		lnbPersonnes.setFont(fontAttributs);
 		lnbPersonnes.setForeground(Color.BLUE);
 		header.add(lnbPersonnes, BorderLayout.EAST);
@@ -171,8 +183,8 @@ public class DetailRecette extends JPanel implements Observer {
 		panelUstensiles.setBackground(Color.WHITE);
 		panelUstensiles.setLayout(new BoxLayout(panelUstensiles, BoxLayout.Y_AXIS));
 		ArrayList<String> ustensilespresents= new ArrayList<String>();
-		for (int i = 0; i < recette.getEtapes().size(); i++) {
-			Etape e = recette.getEtapes().get(i);
+		for (int i = 0; i < maRecette.getEtapes().size(); i++) {
+			Etape e = maRecette.getEtapes().get(i);
 			Ustensile u = e.getUstensile();
 			if (u != null) {
 				String ustensile = new String(u.getUstensile());
@@ -206,7 +218,7 @@ public class DetailRecette extends JPanel implements Observer {
 
 		String listeIngredients = new String("Liste d'ingredients:");
 
-		JLabel titreigd = new JLabel(listeIngredients, JLabel.CENTER);
+		JLabel titreigd = new JLabel(listeIngredients);
 		titreigd.setFont(fontTitre2);
 
 		west.add(titreigd, BorderLayout.NORTH);
@@ -214,8 +226,8 @@ public class DetailRecette extends JPanel implements Observer {
 		JPanel panelIngredients = new JPanel();
 		panelIngredients.setBackground(Color.WHITE);
 		panelIngredients.setLayout(new BoxLayout(panelIngredients, BoxLayout.Y_AXIS));
-		for (int i = 0; i < this.recette.getEtapes().size(); i++) {
-			Etape e = this.recette.getEtapes().get(i);
+		for (int i = 0; i < maRecette.getEtapes().size(); i++) {
+			Etape e = maRecette.getEtapes().get(i);
 			Ingredient ingredient = e.getIngredient();
 			String quantite = e.getQuantite();
 			if (ingredient != null && !ingredient.equals("")) {
@@ -258,9 +270,9 @@ public class DetailRecette extends JPanel implements Observer {
 		SliderEtapes slider = new SliderEtapes();
 		
 	
-		for(int i=0; i < this.recette.getEtapes().size(); i++) { 
-			Etape e = this.recette.getEtapes().get(i);
-			String etape= new String(i+1 +") " +e.getIntitule());
+		for(int i=0; i < maRecette.getEtapes().size(); i++) { 
+			Etape e = maRecette.getEtapes().get(i);
+			String etape = new String(i+1 +") " +e.getIntitule());
 			slider.addSliderComponent(new JLabel(etape, JLabel.CENTER));
 		 }
 		
@@ -279,16 +291,10 @@ public class DetailRecette extends JPanel implements Observer {
 		// Affiche la fenetre
 		frameDetailRecette.setVisible(true);
 
-		/*
-		 * for(int i=0; i<r.getEtapes().size(); i++) { Etape e=r.getEtapes().get(i);
-		 * String etape= new String(i+1 +") " +e.getIntitule());
-		 * g.drawString(etape,10,300+20*i); }
-		 */
-
 	}
 
 	/**
-	 * Met � jour les variables de notre classe
+	 * Met a jour les variables de notre classe
 	 * 
 	 * @param o   Ce sera toujours notre Modele normalement, on s'en fout ici
 	 * @param arg Peut etre de plusieurs types
@@ -300,13 +306,6 @@ public class DetailRecette extends JPanel implements Observer {
 			this.recette = (Recette) arg;
 			this.repaint(0, 0, this.getWidth(), this.getHeight());
 		}
-
-		// Si l'objet re�u est une Image, on affiche cette image
-		/*else if (arg instanceof Image) {
-			this.recette = null;
-			this.image = (Image) arg;
-			this.repaint(0, 0, this.getWidth(), this.getHeight());
-		}*/
 	}
 
 	private String getDifficulte() {

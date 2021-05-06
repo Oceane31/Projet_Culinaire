@@ -6,20 +6,21 @@ import culinaire.structures.Recette;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class ListeRecettes extends JPanel implements Observer {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Modele m;
 	private HashMap<String, Recette> listeRecetes;
 
@@ -27,8 +28,6 @@ public class ListeRecettes extends JPanel implements Observer {
 		super();
 
 		this.m = m;
-
-		this.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
 		
 		JTabbedPane onglets = new JTabbedPane(SwingConstants.TOP);
 
@@ -41,19 +40,16 @@ public class ListeRecettes extends JPanel implements Observer {
 	    JPanel onglet1 = new JPanel();
 	    onglet1.setBackground(Color.WHITE);
 	    onglet1.setLayout(new BorderLayout());
-	    //onglet1.setPreferredSize(new Dimension(largeur, hauteur));
 	    onglets.addTab("Entree", onglet1);
 	    
 	    JPanel onglet2 = new JPanel();
 	    onglet2.setLayout(new BorderLayout());
 	    onglet2.setBackground(Color.WHITE);
-		//onglet2.setPreferredSize(new Dimension(largeur, hauteur));
 	    onglets.addTab("Plat", onglet2);
 
 	    JPanel onglet3 = new JPanel();
 	    onglet3.setLayout(new BorderLayout());
 	    onglet3.setBackground(Color.WHITE);
-	    //onglet3.setPreferredSize(new Dimension(largeur, hauteur));
 	    onglets.addTab("Dessert", onglet3);
 	    onglets.setBackground(Color.WHITE);
 
@@ -78,7 +74,6 @@ public class ListeRecettes extends JPanel implements Observer {
             p.add(buttonPlat);
         }
 
-		
 		onglet2.add(p, BorderLayout.NORTH);
 
 		Panel p1=new Panel(new GridLayout(2,2));
@@ -99,9 +94,7 @@ public class ListeRecettes extends JPanel implements Observer {
             p1.add(buttonDesserts);
         }
 
-
 		onglet3.add(p1, BorderLayout.NORTH);
-
 
 		Panel p2=new Panel(new GridLayout(2,2));
 		p2.setPreferredSize(tailleOnglets);
@@ -120,10 +113,7 @@ public class ListeRecettes extends JPanel implements Observer {
             p2.add(buttonEntree);
         }
         
-        
 		onglet1.add(p2, BorderLayout.NORTH);
-
-
 
 	    this.add(onglets);
 	    this.setPreferredSize(new Dimension(largeur, hauteur));
@@ -135,21 +125,6 @@ public class ListeRecettes extends JPanel implements Observer {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		
-		if (this.listeRecetes != null) {
-			
-			// Créer les onglets
-			
-			this.listeRecetes.forEach((nom, recette) -> {
-				// Créer le bouton et ajouter les Listeners
-				
-				// Si entrée ou plat ou dessert
-				// On ajoute dans le bon onglet
-			});
-			
-			// Ajouter les onglets au JPanel
-			
-		}
 	}
 
 	@Override

@@ -1,7 +1,5 @@
 package culinaire.vues;
 
-import culinaire.GUI;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -17,8 +15,6 @@ public class PanneauCentral extends JPanel {
 
         this.add(listeRecettes, BorderLayout.WEST);
         this.add(detailRecettes, BorderLayout.EAST);
-
-        this.setBorder(BorderFactory.createLineBorder(Color.GREEN));
     }
 
 }

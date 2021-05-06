@@ -10,14 +10,11 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-import culinaire.GUI;
 import culinaire.controleurs.SliderLayout;
 
 public class SliderEtapes extends JPanel {
@@ -70,7 +67,6 @@ public class SliderEtapes extends JPanel {
 		SliderLayout sl = (SliderLayout)this.panelEtapes.getLayout();
 		Component currentComp = sl.getCurrentComponent(this.panelEtapes);
         Component previousComp = sl.getPreviousComponent(this.panelEtapes);
-        Rectangle b = currentComp.getBounds();
         previousComp.setVisible(true);
         SliderListener slistener = new SliderListener(10, currentComp, previousComp, false);
         Timer t=new Timer(40,slistener);

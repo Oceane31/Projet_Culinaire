@@ -6,12 +6,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.imageio.ImageIO;
-import javax.imageio.ImageReader;
 
 public class Afficheur_Image extends Canvas implements Observer{
 
