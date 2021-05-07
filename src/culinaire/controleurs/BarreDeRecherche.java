@@ -35,6 +35,7 @@ public class BarreDeRecherche implements FocusListener, ActionListener {
 
     }
     
+    //recherche du texte de la barre de recherche dans le dictionnaire
     @Override
 	public void actionPerformed(ActionEvent e) {
 		TextField texteRecherche = (TextField)e.getSource();

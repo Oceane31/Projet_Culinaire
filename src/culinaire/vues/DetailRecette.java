@@ -19,15 +19,11 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-/**
- * Affichage de droite pour le d�tail d'une recette, ou l'image au survol d'un
- * bouton
- */
+
 public class DetailRecette extends JPanel implements Observer {
 
-	/**
-	 * 
-	 */
+	//panel pour l'affichage de l'intitulé des recettes
+	
 	private static final long serialVersionUID = 1L;
 	Recette recette = new Recette();
 	Modele m;
@@ -35,21 +31,17 @@ public class DetailRecette extends JPanel implements Observer {
 	static int largeur = (int) (GUI.LARGEUR * 0.5);
 	static int hauteur = (int) (GUI.HAUTEUR * 0.8);
 
-	/**
-	 * @param m Modele g�n�r� dans GUI
-	 */
+	
 	public DetailRecette(Modele m) {
 		super();
 		this.m = m;
 		this.setLayout(new BorderLayout());
 
-		// Taille de 60% � droite
 		this.setPreferredSize(new Dimension(largeur, hauteur));
 
-		// Bordure pour distinguer les diff�rents JPanel, � suppr lors du rendu
-		// final
 
-		// D�finition d'une image par d�faut
+
+		// Definition d'une image par defaut
 		try {
 			image = ImageIO.read(new File("riz.jpeg"));
 		} catch (IOException e) {
@@ -58,15 +50,9 @@ public class DetailRecette extends JPanel implements Observer {
 
 	}
 
-	/**
-	 * Si une recette est s�lectionn�e, affiche la recette Sinon, si il y a une
-	 * image � afficher, alors bahhh on l'affiche quoi ...
-	 * 
-	 * @param g
-	 */
+
 	@Override
 	public void paintComponent(Graphics g) {
-		// On efface tout
 		super.paintComponent(g);
 
 		if (this.image != null) {
@@ -78,14 +64,10 @@ public class DetailRecette extends JPanel implements Observer {
 		}
 	}
 
-	/**
-	 * Affiche la recette enregistr�e dans this.recette
-	 * 
-	 * @param g
-	 */
+
 	public void afficheRecette() {
 
-		// Si plusieurs recettes sont trouv�es
+		// Si plusieurs recettes sont trouvees par la barre de recherche
 		if(this.m.getRecetteTrouvees().size() > 0) {
 			for(final Recette recetteTrouvee : this.m.getRecetteTrouvees()) {
 				this.createRecetteFrame(recetteTrouvee);
@@ -97,10 +79,7 @@ public class DetailRecette extends JPanel implements Observer {
 
 	}
 
-	/**
-	 * 
-	 * @param maRecette
-	 */
+
 	private void createRecetteFrame(Recette maRecette) {
 		
 		// Creation de la fenetre
@@ -109,7 +88,7 @@ public class DetailRecette extends JPanel implements Observer {
 
 
 		int largeur = (int) (GUI.LARGEUR*0.5);
-		int hauteur = (int) (GUI.HAUTEUR);
+		int hauteur = (int) (GUI.HAUTEUR*1.20);
 
 		// Creation de la partie haute de la recette
 		JPanel header = new JPanel();
@@ -231,7 +210,7 @@ public class DetailRecette extends JPanel implements Observer {
 			Ingredient ingredient = e.getIngredient();
 			String quantite = e.getQuantite();
 			if (ingredient != null && !ingredient.equals("")) {
-				if (quantite != "" && quantite!= null) {
+				if (!quantite.equals("") && quantite!= null) {
 					if(quantite.length()==1) {
 					String ingredientStr = new String(ingredient.toString());
 					JLabel labelIngredient = new JLabel(quantite+ " " +ingredientStr);
@@ -246,7 +225,12 @@ public class DetailRecette extends JPanel implements Observer {
 					
 					}
 				}
-				// west.add(labelIngredient, BorderLayout.CENTER);
+				else {
+					String ingredientStr = new String(ingredient.toString());
+					JLabel labelIngredient = new JLabel(ingredientStr);
+					labelIngredient.setFont(fontlistes);
+					panelIngredients.add(labelIngredient);
+				}
 			} else {
 
 				JLabel pasdIgd = new JLabel("pas d'ingredients n�cessaire");
@@ -293,21 +277,16 @@ public class DetailRecette extends JPanel implements Observer {
 
 	}
 
-	/**
-	 * Met a jour les variables de notre classe
-	 * 
-	 * @param o   Ce sera toujours notre Modele normalement, on s'en fout ici
-	 * @param arg Peut etre de plusieurs types
-	 */
+
 	@Override
 	public void update(Observable o, Object arg) {
-		// Si l'objet re�u est une recette, on efface l'image et on affiche la recette
-		if (arg instanceof Recette) { // Toujours v�rifier le type avant d'inf�rer
+		// Si l'objet recu est une recette, on affiche la recette
+		if (arg instanceof Recette) { // Toujours verifier le type avant d'inferer
 			this.recette = (Recette) arg;
 			this.repaint(0, 0, this.getWidth(), this.getHeight());
 		}
 	}
-
+	
 	private String getDifficulte() {
 		String difficulte = "difficulte: ";
 		for (int i = 0; i < recette.getDifficulte(); i++) {

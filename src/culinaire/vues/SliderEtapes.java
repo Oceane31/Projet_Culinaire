@@ -62,7 +62,7 @@ public class SliderEtapes extends JPanel {
 		});
 	}
 
-
+	//méthode pour voir l'étape précédente
 	public void previous() {
 		SliderLayout sl = (SliderLayout)this.panelEtapes.getLayout();
 		Component currentComp = sl.getCurrentComponent(this.panelEtapes);
@@ -73,7 +73,8 @@ public class SliderEtapes extends JPanel {
         slistener.timer=t;
         t.start();
 	}
-
+	
+	//méthode pour voir l'étape suivant
 	public void next() {
 		SliderLayout sl= (SliderLayout)this.panelEtapes.getLayout();
         Component currentComp = sl.getCurrentComponent(this.panelEtapes);

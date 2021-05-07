@@ -14,10 +14,7 @@ public class Ustensile implements Serializable {
 		this.ustensile=ustensile;
 	}
 	
-	public static void main(String[] args) {
-		//Ustensiles casserole=new Ustensiles("casserole");
-
-	}
+	
 
 	public String getUstensile() {
 		return this.ustensile;

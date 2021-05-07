@@ -75,9 +75,7 @@ public class Modele extends Observable {
 		return this.recetteTrouvees;
 	}
 
-	public void suivant() {
-		// Incrémente étape en cours (ATTENTION PAS DE DEPASSEMENT) et notifie
-	}
+	
 
 	public void imageRecette(String nomRecette) {
 		Recette recette = dicoRecettes.get(nomRecette);
@@ -89,8 +87,6 @@ public class Modele extends Observable {
 			BufferedOutputStream bos = new BufferedOutputStream(fos);
 			XMLEncoder encoder = new XMLEncoder(bos);
 			encoder.writeObject(this.dicoRecettes);
-
-			// Attention il faut regarder comment serializer le Array d'etapes
 			encoder.flush();
 			encoder.close();
 			bos.close();
@@ -152,7 +148,6 @@ public class Modele extends Observable {
 							ust = new Ustensile(values[4]);
 							ustensiles.add(ust);
 						}
-
 						listeEtapes.add(new Etape(values[0], values[1], ingr, Integer.parseInt(values[3]), ust));
 					}
 				}

@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class SelectionRecettes implements ActionListener {
+	//selection de la recette
 	Modele modele;
 	
 	public SelectionRecettes(Modele m) {

@@ -16,15 +16,12 @@ import javax.swing.*;
 
 public class ListeRecettes extends JPanel implements Observer {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private Modele m;
 	private HashMap<String, Recette> listeRecetes;
 
-	public ListeRecettes(ActionListener ecouteur, Modele m, MouseListener mouse) {
+	public ListeRecettes(ActionListener ecouteur, Modele m) {
 		super();
 
 		this.m = m;
@@ -53,7 +50,7 @@ public class ListeRecettes extends JPanel implements Observer {
 	    onglets.addTab("Dessert", onglet3);
 	    onglets.setBackground(Color.WHITE);
 
-	    // FlowLayout pour mettre en retour Ã  la ligne les boutons
+	    //Création d'un gridLayout
 	    Panel p=new Panel();
 	    p.setLayout(new GridLayout(3,2));
 		p.setPreferredSize(tailleOnglets);
@@ -61,7 +58,7 @@ public class ListeRecettes extends JPanel implements Observer {
 		// Liste des plats
         final ArrayList<String> mesPlats= new ArrayList<String>();
         mesPlats.add("Risotto");
-        mesPlats.add("Riz et poulet au curry");
+        mesPlats.add("Riz et Poulet au curry");
         mesPlats.add("Riz Cantonnais");
         mesPlats.add("Paella");
         mesPlats.add("Riz senegalais");
@@ -69,7 +66,6 @@ public class ListeRecettes extends JPanel implements Observer {
         for(final String plat : mesPlats) {
             BouttonRecette buttonPlat = new BouttonRecette(plat);
             buttonPlat.setName(plat);
-            buttonPlat.addMouseListener(mouse);
             buttonPlat.addActionListener(ecouteur);
             p.add(buttonPlat);
         }
@@ -89,7 +85,6 @@ public class ListeRecettes extends JPanel implements Observer {
         for(final String dessert : mesDesserts) {
             BouttonRecette buttonDesserts = new BouttonRecette(dessert);
             buttonDesserts.setName(dessert);
-            buttonDesserts.addMouseListener(mouse);
             buttonDesserts.addActionListener(ecouteur);
             p1.add(buttonDesserts);
         }
@@ -108,7 +103,6 @@ public class ListeRecettes extends JPanel implements Observer {
         for(final String entree : mesEntrees) {
             BouttonRecette buttonEntree = new BouttonRecette(entree);
             buttonEntree.setName(entree);
-            buttonEntree.addMouseListener(mouse);
             buttonEntree.addActionListener(ecouteur);
             p2.add(buttonEntree);
         }

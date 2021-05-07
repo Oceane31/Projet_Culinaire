@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
 public class MyButton extends JButton {
+	//Création du bouton pour les flèches pour faire défiler les étapes
  
     private static final long serialVersionUID = 1L;
  
