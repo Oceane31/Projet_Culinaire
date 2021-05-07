@@ -64,7 +64,7 @@ public class ListeRecettes extends JPanel implements Observer {
         mesPlats.add("Riz et poulet au curry");
         mesPlats.add("Riz Cantonnais");
         mesPlats.add("Paella");
-        mesPlats.add("Riz sénégalais");
+        mesPlats.add("Riz senegalais");
 
         for(final String plat : mesPlats) {
             BouttonRecette buttonPlat = new BouttonRecette(plat);
@@ -84,7 +84,7 @@ public class ListeRecettes extends JPanel implements Observer {
         mesDesserts.add("Riz au lait");
         mesDesserts.add("Riz sucre au four");
         mesDesserts.add("Gateau de riz au caramel");
-        mesDesserts.add("Galette de riz");
+        mesDesserts.add("Galettes de riz");
 
         for(final String dessert : mesDesserts) {
             BouttonRecette buttonDesserts = new BouttonRecette(dessert);
