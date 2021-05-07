@@ -10,11 +10,14 @@ import java.awt.TextField;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JLabel;
-
 import culinaire.controleurs.BarreDeRecherche;
 
 public class BarreDuHaut extends Panel implements Observer{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public BarreDuHaut(BarreDeRecherche c) {
 		super();
@@ -27,6 +30,7 @@ public class BarreDuHaut extends Panel implements Observer{
 		TextField recherche = new TextField("Tapez votre recherche",25);
 		this.setBackground(Color.WHITE);
 		recherche.addFocusListener(c);
+		recherche.addActionListener(c);
 		this.add(recherche);
 	}
 	

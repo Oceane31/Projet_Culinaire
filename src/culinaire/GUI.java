@@ -1,6 +1,5 @@
 package culinaire;
 
-import culinaire.Modele;
 import culinaire.controleurs.BarreDeRecherche;
 import culinaire.controleurs.BoutonSurvole;
 import culinaire.controleurs.SelectionRecettes;
@@ -8,10 +7,13 @@ import culinaire.vues.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class GUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static int LARGEUR = 1200;
 	public static int HAUTEUR = 500;
 
@@ -19,6 +21,7 @@ public class GUI extends JFrame {
 		new GUI();
 	}
 
+	@SuppressWarnings({ "deprecation"})
 	public GUI() {
 		
 		Modele modele= new Modele();
@@ -32,7 +35,6 @@ public class GUI extends JFrame {
 		this.setTitle("application");
 
 		// VUES
-
 		BarreDuHaut entete = new BarreDuHaut(b);
 
 		BoutonSurvole bs = new BoutonSurvole(modele);
@@ -42,14 +44,13 @@ public class GUI extends JFrame {
 		DetailRecette afficheurDetails = new DetailRecette(modele);
 		modele.addObserver(afficheurDetails);
 		
-
 		PanneauCentral panneau = new PanneauCentral(listeRecettes, afficheurDetails);
 
 		this.add(entete,BorderLayout.NORTH);
 		this.add(panneau, BorderLayout.CENTER);
 
 		this.setSize(new Dimension(GUI.LARGEUR, GUI.HAUTEUR));
-		modele.init(); 
+		modele.init();
 		this.setVisible(true);
 		
 	}
